@@ -14,17 +14,23 @@ const Navigation = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  index === 0 ? "text-primary" : "text-foreground"
-                }`}
-              >
-                {item}
-              </a>
-            ))}
+            {navItems.map((item, index) => {
+              const href = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
+              const isActive = (item === "HOME" && window.location.pathname === "/") || 
+                              (item === "ABOUT" && window.location.pathname === "/about");
+              
+              return (
+                <a
+                  key={item}
+                  href={href}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive ? "text-primary" : "text-foreground"
+                  }`}
+                >
+                  {item}
+                </a>
+              );
+            })}
           </div>
 
           <Button variant="heroPrimary" size="default" className="gap-2">
