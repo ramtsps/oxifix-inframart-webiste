@@ -17,7 +17,8 @@ const Navigation = () => {
             {navItems.map((item, index) => {
               const href = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
               const isActive = (item === "HOME" && window.location.pathname === "/") || 
-                              (item === "ABOUT" && window.location.pathname === "/about");
+                              (item === "ABOUT" && window.location.pathname === "/about") ||
+                              (item === "INVESTORS" && window.location.pathname === "/investors");
               
               return (
                 <a
