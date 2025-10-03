@@ -1,12 +1,38 @@
-import { Quote } from "lucide-react";
+import { useState, useEffect } from "react";
+import pic1 from "@/assets/profile-logo/pic1.png";
+import pic2 from "@/assets/profile-logo/pic2.png";
+import pic3 from "@/assets/profile-logo/pic3.png";
+import pic4 from "@/assets/profile-logo/pic4.png";
+import bgImage from "@/assets/bottom.png";
+import dots from "@/assets/dots.svg";
+import { useAOS } from "@/hooks/useAOS";
 
 const testimonials = [
   {
     name: "Ravi Krishnan",
     role: "CEO, R&J Constructions",
-    quote: "Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    quote: `"Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin."`,
+    avatar: pic1,
   },
+  {
+    name: "Priya Sharma",
+    role: "Director, Metro Builders",
+    quote: `"Excellent service and quality materials. Their showroom has everything we need for our construction projects. "`,
+    avatar: pic2,
+  },
+  {
+    name: "Arun Kumar",
+    role: "Founder, Skyline Infrastructure",
+    quote: `"The largest collection of construction materials in Salem. Their team provides exceptional support and guidance for all our project requirements."`,
+    avatar: pic3,
+  },
+];
+
+const trustedCompanies = [
+  { name: "R&J Constructions", logo: pic1 },
+  { name: "Metro Builders", logo: pic2 },
+  { name: "Skyline Infrastructure", logo: pic3 },
+  { name: "Green Valley Constructions", logo: pic4 },
 ];
 
 const stats = [
@@ -17,59 +43,231 @@ const stats = [
 ];
 
 const Testimonials = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+
+  useAOS(); // Initialize AOS
+
+  // Auto slide every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextTestimonial = () => {
+    setSlideDirection("right");
+    setCurrentTestimonial((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setSlideDirection("left");
+    setCurrentTestimonial((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
+  const goToTestimonial = (index: number) => {
+    setSlideDirection(index > currentTestimonial ? "right" : "left");
+    setCurrentTestimonial(index);
+  };
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    setIsDragging(true);
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
+    setCurrentX(clientX);
+  };
+
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging) return;
+
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    setCurrentX(clientX);
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+
+    const diff = startX - currentX;
+    const swipeThreshold = 50; // Minimum swipe distance
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next testimonial
+        nextTestimonial();
+      } else {
+        // Swipe right - previous testimonial
+        prevTestimonial();
+      }
+    }
+
+    setIsDragging(false);
+    setStartX(0);
+    setCurrentX(0);
+  };
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        {/* Testimonial */}
-        <div className="max-w-4xl mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex -space-x-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-16 h-16 rounded-full border-4 border-background overflow-hidden">
-                  <img 
-                    src={`https://images.unsplash.com/photo-${1500000000000 + i * 10000000}?w=150&h=150&fit=crop`}
-                    alt={`Customer ${i}`}
+    <section className="pt-12 sm:pt-16 lg:pt-20 bg-muted/30 relative overflow-hidden">
+      {/* Background Image at Bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 lg:h-64 bg-repeat-x animate-move-bg-r-l"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "auto 100%",
+        }}
+      />
+
+      {/* Right Side Circle - Responsive */}
+      <div
+        className="absolute top-40 sm:top-60 right-0 translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] rounded-full border-[20px] sm:border-[30px] lg:border-[50px] border-muted opacity-60 pointer-events-none"
+        style={{ zIndex: 0 }}
+      />
+
+      {/* Pagination Dots - Responsive Positioning */}
+      <div
+        className="absolute z-20 right-4 sm:right-8 lg:right-44 top-80 sm:top-40 lg:top-60 transform -translate-y-1/2 flex flex-col items-center gap-2 sm:gap-3 lg:gap-4"
+        data-aos="fade-left"
+        data-aos-delay="300"
+      >
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToTestimonial(index)}
+            className={`rounded-full transition-all duration-300 ${
+              index === currentTestimonial
+                ? "bg-black ring-1 sm:ring-2 w-2 h-2 sm:w-3 sm:h-3 ring-black ring-offset-1 sm:ring-offset-2 ring-offset-white"
+                : "bg-gray-300 hover:bg-gray-400 w-1.5 h-1.5 sm:w-2 sm:h-2"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+        {/* Testimonial Section */}
+        <div className="max-w-4xl mb-12 sm:mb-16">
+          {/* Trusted Companies */}
+          <div
+            className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div className="flex -space-x-3 sm:-space-x-4">
+              {trustedCompanies.map((company, index) => (
+                <div
+                  key={index}
+                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full border-2 sm:border-4 border-background overflow-hidden transition-all duration-300 hover:scale-110 hover:z-10"
+                >
+                  <img
+                    src={company.logo}
+                    alt={company.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
               ))}
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Trusted By</p>
-              <p className="font-semibold">Leading Infra Companies.</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Trusted By
+              </p>
+              <p className="font-semibold text-sm sm:text-base">
+                Leading Infra Companies.
+              </p>
             </div>
           </div>
 
-          <div className="relative">
-            <Quote className="w-12 h-12 text-primary mb-4" />
-            <blockquote className="text-3xl md:text-4xl font-bold leading-relaxed mb-8">
-              {testimonials[0].quote}
-            </blockquote>
-            <div>
-              <p className="font-bold text-xl">{testimonials[0].name}</p>
-              <p className="text-muted-foreground">{testimonials[0].role}</p>
+          {/* Dynamic Testimonial Content with Slide */}
+          <div
+            className="relative overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              key={currentTestimonial}
+              className={`w-full cursor-grab active:cursor-grabbing ${
+                slideDirection === "right"
+                  ? "animate-slide-in-right"
+                  : "animate-slide-in-left"
+              }`}
+              onMouseDown={(e) => handleDragStart(e)}
+              onTouchStart={(e) => handleDragStart(e)}
+              onMouseMove={(e) => handleDragMove(e)}
+              onTouchMove={(e) => handleDragMove(e)}
+              onMouseUp={handleDragEnd}
+              onTouchEnd={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+            >
+              <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed mb-4 sm:mb-6 lg:mb-8 select-none">
+                {testimonials[currentTestimonial].quote}
+              </blockquote>
+              <div className="flex items-center gap-3 sm:gap-4 select-none">
+                {/* Avatar - Added for better visual */}
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <img
+                    src={testimonials[currentTestimonial].avatar}
+                    alt={testimonials[currentTestimonial].name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-base sm:text-lg lg:text-xl">
+                    {testimonials[currentTestimonial].name}
+                  </p>
+                  <p className="text-muted-foreground text-sm sm:text-base">
+                    {testimonials[currentTestimonial].role}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <div 
-              key={stat.label}
-              className={`${stat.color} p-8 rounded-2xl hover-scale animate-fade-in relative`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="absolute top-0 left-8 w-0.5 h-16 bg-foreground -translate-y-16">
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-foreground rounded-full" />
+        {/* Stats Section */}
+        <div
+          className="relative pt-4 sm:pt-12 mb-12 sm:mb-0"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="mb-1 sm:mb-2 transform md:translate-x-8 lg:translate-x-12 xl:translate-x-20">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black">
+                    {stat.number}
+                    <span className="text-green-500 text-lg sm:text-xl lg:text-2xl xl:text-3xl align-top">
+                      +
+                    </span>
+                  </div>
+                  <div className="text-xs sm:text-sm lg:text-base xl:text-lg font-medium text-black mt-1 sm:mt-2">
+                    {stat.label}
+                  </div>
+                </div>
+
+                {/* Hide dots and lines on mobile, show on tablet and above */}
+                <div className="hidden sm:flex flex-col items-center">
+                  <img
+                    src={dots}
+                    alt="dots"
+                    className="w-6 h-6 lg:w-8 lg:h-8"
+                  />
+                  <div
+                    className={`w-0.5 bg-black ${
+                      index % 2 === 0 ? "h-12 lg:h-16" : "h-20 lg:h-28"
+                    }`}
+                  />
+                </div>
               </div>
-              <div className="text-5xl font-bold mb-2">
-                {stat.number}
-                <span className="text-primary">+</span>
-              </div>
-              <div className="text-lg font-medium">{stat.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

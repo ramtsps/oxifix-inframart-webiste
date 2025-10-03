@@ -1,6 +1,8 @@
+// Locations.tsx
 import { MapPin, Phone, Mail } from "lucide-react";
 import storeFront from "@/assets/store-front.jpg";
 import indiaMap from "@/assets/india-map.svg";
+import { useAOS } from "@/hooks/useAOS";
 
 const locations = [
   {
@@ -34,52 +36,72 @@ const locations = [
 ];
 
 const Locations = () => {
+  useAOS(); // Initialize AOS
+
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="mb-12">
-          <p className="text-primary font-normal tracking-wider text-sm flex items-center gap-2 mb-4">
-            <span className="w-12 h-0.5  bg-dotted"></span>
+    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        {/* Header Section */}
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <p
+            className="text-primary font-normal tracking-wider text-sm flex items-center gap-2 mb-3 sm:mb-4"
+            data-aos="fade-right"
+            data-aos-delay="50" // Reduced delay
+            data-aos-duration="300" // Reduced duration
+          >
+            <span className="w-8 sm:w-12 h-0.5 bg-dotted"></span>
             WE ARE JUST NEAR YOU
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold"
+            data-aos="fade-up"
+            data-aos-delay="100" // Reduced delay
+            data-aos-duration="400" // Reduced duration
+          >
             Our Locations
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Location Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {locations.map((location, index) => (
               <div
                 key={location.name}
-                className="bg-background rounded-2xl overflow-hidden shadow-lg hover-scale animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-background rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105" // Faster hover transition
+                data-aos="fade-up"
+                data-aos-delay={index * 50 + 150} // Reduced delays
+                data-aos-duration="400" // Reduced duration
               >
-                <div className="bg-foreground text-background p-4 text-center">
-                  <h3 className="text-xl font-bold">{location.name}</h3>
+                <div className="bg-foreground text-background p-3 sm:p-4 text-center">
+                  <h3 className="text-lg sm:text-xl font-bold">
+                    {location.name}
+                  </h3>
                 </div>
 
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={storeFront}
                     alt={`${location.name} store`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-200 hover:scale-110" // Faster hover transition
                   />
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <div className="flex gap-2 text-sm">
+                <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
+                  {/* Address */}
+                  <div className="flex gap-2 text-xs sm:text-sm">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <p className="text-muted-foreground">
-                      <span className="font-semibold text-foreground">
+                      <span className="font-semibold text-foreground block sm:inline">
                         Address:
-                      </span>
-                      <br />
+                      </span>{" "}
                       {location.address}
                     </p>
                   </div>
 
-                  <div className="flex gap-2 text-sm">
+                  {/* Phone */}
+                  <div className="flex gap-2 text-xs sm:text-sm">
+                    <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <p className="text-muted-foreground">
                       <span className="font-semibold text-foreground">
                         Phone:
@@ -88,7 +110,9 @@ const Locations = () => {
                     </p>
                   </div>
 
-                  <div className="flex gap-2 text-sm">
+                  {/* Email */}
+                  <div className="flex gap-2 text-xs sm:text-sm">
+                    <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <p className="text-muted-foreground">
                       <span className="font-semibold text-foreground">
                         Email:
@@ -101,26 +125,18 @@ const Locations = () => {
             ))}
           </div>
 
-          {/* India Map */}
+          {/* India Map Section */}
           <div
-            className="flex items-center justify-center animate-fade-in"
-            style={{ animationDelay: "0.4s" }}
+            className="flex items-center justify-center mt-8 lg:mt-0"
+            data-aos="fade-left"
+            data-aos-delay="300" // Reduced delay
+            data-aos-duration="400" // Reduced duration
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
               <img
                 src={indiaMap}
                 alt="India map showing our locations"
                 className="w-full h-auto"
-              />
-              {/* Location markers */}
-              <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-primary rounded-full animate-pulse" />
-              <div
-                className="absolute top-2/3 left-1/3 w-4 h-4 bg-primary rounded-full animate-pulse"
-                style={{ animationDelay: "0.2s" }}
-              />
-              <div
-                className="absolute top-1/2 left-1/2 w-4 h-4 bg-primary rounded-full animate-pulse"
-                style={{ animationDelay: "0.4s" }}
               />
             </div>
           </div>

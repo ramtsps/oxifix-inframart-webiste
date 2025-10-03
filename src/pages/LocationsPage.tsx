@@ -24,7 +24,9 @@ import LeadershipSection from "@/components/LeadershipSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Brands from "@/components/Brands";
-const Investors = () => {
+import WhoWeAre from "@/components/WhoWeAre";
+import Locations from "@/components/Locations";
+const LocationsPage = () => {
   const teamMembers = [
     {
       name: "Mr. Rajesh Kumar",
@@ -92,7 +94,7 @@ const Investors = () => {
 
       <HeroSection
         backgroundImage={storeFront}
-        title="  Investors"
+        title="Locations"
         subtitle=" We Sell Best in class Construction Materials at affordable price
             with a wide range of collections."
         minHeight="min-h-[80vh]"
@@ -100,40 +102,7 @@ const Investors = () => {
         animate={true}
       />
       {/* Hero Section */}
-      <WhyInframart />
-      <Welcome
-        badgeText="JOIN US"
-        title="Join Fastest Growing Supply Chain Business"
-        description="Proin Porttitor Pharetra Interdum. Donec Erat Nibh, Cursus Non Interdum Ac, Fermentum."
-        features={[
-          { id: "1", text: "Innovation Eco Power Technologies" },
-          { id: "2", text: "Regularly Maintaining And Organizing Your Tools" },
-          { id: "3", text: "Regularly Organizing And Maintaining Your Tools" },
-        ]}
-        testimonial={{
-          quote:
-            "We Have Multiple Models Of Engagement: We Can Work Directly With Individuals For Private Residences, Partner.",
-          name: "John Smith",
-          position: "CEO & Founder",
-          avatar:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop",
-        }}
-        award={{
-          icon: awardIcon,
-          title: "We're A Global Award",
-          subtitle: "wining Company",
-        }}
-        images={{
-          main: showroom2,
-          secondary: [showroom1, appliances],
-        }}
-      />
-      {/* Join Business Section */}
-      <LeadershipSection
-        title="Meet Our Leadership"
-        subtitle="···················· OUR CORE TEAM ··················"
-        topBackgroundImage={topBackgroundImage} // Pass the background image
-      />
+      <Locations />
 
       <Testimonials />
       <FAQ />
@@ -144,4 +113,4 @@ const Investors = () => {
   );
 };
 
-export default Investors;
+export default LocationsPage;
