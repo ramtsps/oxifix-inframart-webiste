@@ -11,8 +11,24 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.svg";
 import point from "@/assets/menu-point.svg";
 import sectionBg from "@/assets/sevices.png";
-
+import { useState } from "react";
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+
+  const handleNewsletterSubmit = () => {
+    if (email) {
+      // Here you would typically send to your backend
+      console.log("Newsletter subscription:", email);
+      setNewsletterSuccess(true);
+      setEmail("");
+
+      // Optional: Hide success after 3 seconds
+      setTimeout(() => {
+        setNewsletterSuccess(false);
+      }, 3000);
+    }
+  };
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -108,20 +124,34 @@ const Footer = () => {
               Our clients, our employees, and our community through our
               commitment.
             </p>
-            <div className="flex gap-2 flex-wrap">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 min-w-[250px] bg-white border-gray-300 text-black placeholder:text-gray-400 rounded-full py-5 px-6 h-16 focus:border-primary "
-              />
 
-              <button className="flex items-center rounded-full bg-primary text-white font-medium px-4 py-2 relative  hover-scale sm:px-5 sm:py-3 md:px-4 md:py-2">
-                <span className="pr-2">SUBSCRIBE</span>
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black -mr-1">
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </span>
-              </button>
-            </div>
+            {newsletterSuccess ? (
+              // Success Message
+              <div className="bg-primary text-white rounded-full p-4 text-center animate-pulse">
+                <p className="font-semibold">Thank you for subscribing!</p>
+              </div>
+            ) : (
+              // Newsletter Form
+              <div className="flex gap-2 flex-wrap">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 min-w-[250px] bg-white border-gray-300 text-black placeholder:text-gray-400 rounded-full py-5 px-6 h-16 focus:border-primary"
+                />
+
+                <button
+                  onClick={handleNewsletterSubmit}
+                  className="flex items-center rounded-full bg-primary text-white font-medium px-4 py-2 relative hover-scale sm:px-5 sm:py-3 md:px-4 md:py-2 transition-all duration-200 hover:scale-105"
+                >
+                  <span className="pr-2">SUBSCRIBE</span>
+                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black -mr-1">
+                    <ArrowRight className="w-4 h-4 text-white" />
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

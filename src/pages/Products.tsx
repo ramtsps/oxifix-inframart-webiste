@@ -23,7 +23,9 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<
+    (typeof products)[0] | null
+  >(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const categories = [
@@ -168,7 +170,7 @@ const Products = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleProductClick = (product: typeof products[0]) => {
+  const handleProductClick = (product: (typeof products)[0]) => {
     setSelectedProduct(product);
     setIsDialogOpen(true);
   };
@@ -390,15 +392,23 @@ const Products = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between py-2 border-b">
                       <span className="text-muted-foreground">Category:</span>
-                      <span className="font-medium">{selectedProduct.category}</span>
+                      <span className="font-medium">
+                        {selectedProduct.category}
+                      </span>
                     </div>
                     <div className="flex justify-between py-2 border-b">
                       <span className="text-muted-foreground">Product ID:</span>
-                      <span className="font-medium">#{selectedProduct.id.toString().padStart(4, '0')}</span>
+                      <span className="font-medium">
+                        #{selectedProduct.id.toString().padStart(4, "0")}
+                      </span>
                     </div>
                     <div className="flex justify-between py-2 border-b">
-                      <span className="text-muted-foreground">Availability:</span>
-                      <span className="font-medium text-green-600">In Stock</span>
+                      <span className="text-muted-foreground">
+                        Availability:
+                      </span>
+                      <span className="font-medium text-green-600">
+                        In Stock
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -406,22 +416,23 @@ const Products = () => {
                 {/* Additional Info */}
                 <div className="mb-6 p-4 bg-muted/30 rounded-lg">
                   <p className="text-sm text-muted-foreground">
-                    <strong>Note:</strong> All prices are subject to change based on market conditions. 
-                    Contact our sales team for bulk orders and special pricing.
+                    <strong>Note:</strong> All prices are subject to change
+                    based on market conditions. Contact our sales team for bulk
+                    orders and special pricing.
                   </p>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="mt-auto flex flex-col sm:flex-row gap-3">
+                <div className="mt-auto flex flex-row gap-3">
                   <Link to="/contact" className="flex-1">
                     <Button className="w-full gap-2 bg-primary hover:bg-[#4bc483]">
                       <ShoppingCart className="w-4 h-4" />
-                      Request Quote
+                      Inquire
                     </Button>
                   </Link>
                   <Button
                     variant="outline"
-                    className="flex-1"
+                    className="flex-1 bg-[#dcdedd] text-black hover:bg-[#949494FF]/90"
                     onClick={() => setIsDialogOpen(false)}
                   >
                     Close

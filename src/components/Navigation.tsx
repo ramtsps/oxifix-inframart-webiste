@@ -38,7 +38,9 @@ const Navigation = () => {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={logo} alt="Logo" className="h-8 sm:h-10" />
+            <Link to="/">
+              <img src={logo} alt="Logo" className="h-8 sm:h-10" />
+            </Link>
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -47,7 +49,8 @@ const Navigation = () => {
               const isActive =
                 (item === "HOME" && window.location.pathname === "/") ||
                 (item === "ABOUT" && window.location.pathname === "/about") ||
-                (item === "PRODUCTS" && window.location.pathname === "/products") ||
+                (item === "PRODUCTS" &&
+                  window.location.pathname === "/products") ||
                 (item === "INVESTORS" &&
                   window.location.pathname === "/investors") ||
                 (item === "CONTACT" &&
@@ -108,7 +111,8 @@ const Navigation = () => {
               const isActive =
                 (item === "HOME" && window.location.pathname === "/") ||
                 (item === "ABOUT" && window.location.pathname === "/about") ||
-                (item === "PRODUCTS" && window.location.pathname === "/products") ||
+                (item === "PRODUCTS" &&
+                  window.location.pathname === "/products") ||
                 (item === "INVESTORS" &&
                   window.location.pathname === "/investors") ||
                 (item === "CONTACT" &&
