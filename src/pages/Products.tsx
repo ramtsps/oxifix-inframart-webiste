@@ -3,8 +3,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Search, Filter, ShoppingCart, ArrowRight } from "lucide-react";
+import { Search, Filter, ShoppingCart, ArrowRight, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import heroBg from "@/assets/hero-bg.jpg";
 import constructionImg from "@/assets/construction.jpg";
 import appliancesImg from "@/assets/appliances.jpg";
@@ -16,6 +23,8 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const categories = [
     "All",
@@ -159,6 +168,11 @@ const Products = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const handleProductClick = (product: typeof products[0]) => {
+    setSelectedProduct(product);
+    setIsDialogOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -229,7 +243,8 @@ const Products = () => {
               {filteredProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full"
+                  className="group overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  onClick={() => handleProductClick(product)}
                 >
                   <div className="relative overflow-hidden h-48 flex-shrink-0">
                     <img
@@ -321,6 +336,102 @@ const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Detail Modal */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedProduct && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Product Image */}
+              <div className="relative overflow-hidden rounded-lg h-64 md:h-full min-h-[300px]">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover"
+                />
+                {selectedProduct.featured && (
+                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                    Featured
+                  </div>
+                )}
+              </div>
+
+              {/* Product Details */}
+              <div className="flex flex-col">
+                <DialogHeader className="mb-4">
+                  <div className="mb-2">
+                    <span className="text-xs text-primary font-semibold tracking-wider uppercase">
+                      {selectedProduct.category}
+                    </span>
+                  </div>
+                  <DialogTitle className="text-2xl md:text-3xl font-bold">
+                    {selectedProduct.name}
+                  </DialogTitle>
+                  <DialogDescription className="text-base mt-2">
+                    {selectedProduct.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                {/* Price */}
+                <div className="mb-6 p-4 bg-muted/50 rounded-lg">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-primary">
+                      {selectedProduct.price}
+                    </span>
+                    <span className="text-muted-foreground">
+                      {selectedProduct.unit}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Product Specifications */}
+                <div className="mb-6 space-y-3">
+                  <h3 className="font-semibold text-lg">Specifications</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between py-2 border-b">
+                      <span className="text-muted-foreground">Category:</span>
+                      <span className="font-medium">{selectedProduct.category}</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b">
+                      <span className="text-muted-foreground">Product ID:</span>
+                      <span className="font-medium">#{selectedProduct.id.toString().padStart(4, '0')}</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b">
+                      <span className="text-muted-foreground">Availability:</span>
+                      <span className="font-medium text-green-600">In Stock</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="mb-6 p-4 bg-muted/30 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Note:</strong> All prices are subject to change based on market conditions. 
+                    Contact our sales team for bulk orders and special pricing.
+                  </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="mt-auto flex flex-col sm:flex-row gap-3">
+                  <Link to="/contact" className="flex-1">
+                    <Button className="w-full gap-2 bg-primary hover:bg-[#4bc483]">
+                      <ShoppingCart className="w-4 h-4" />
+                      Request Quote
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => setIsDialogOpen(false)}
+                  >
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
