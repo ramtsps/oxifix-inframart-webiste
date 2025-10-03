@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Investors from "./pages/Investors";
 import Contact from "./pages/Contact";
 import LocationsPage from "./pages/LocationsPage";
+import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import { useAOS } from "@/hooks/useAOS";
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/investors" element={<Investors />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/locations" element={<LocationsPage />} />

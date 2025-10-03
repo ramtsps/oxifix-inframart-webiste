@@ -47,6 +47,7 @@ const Navigation = () => {
               const isActive =
                 (item === "HOME" && window.location.pathname === "/") ||
                 (item === "ABOUT" && window.location.pathname === "/about") ||
+                (item === "PRODUCTS" && window.location.pathname === "/products") ||
                 (item === "INVESTORS" &&
                   window.location.pathname === "/investors") ||
                 (item === "CONTACT" &&
@@ -107,6 +108,7 @@ const Navigation = () => {
               const isActive =
                 (item === "HOME" && window.location.pathname === "/") ||
                 (item === "ABOUT" && window.location.pathname === "/about") ||
+                (item === "PRODUCTS" && window.location.pathname === "/products") ||
                 (item === "INVESTORS" &&
                   window.location.pathname === "/investors") ||
                 (item === "CONTACT" &&
