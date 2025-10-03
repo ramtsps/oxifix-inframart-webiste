@@ -3,13 +3,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Search, Filter, ShoppingCart } from "lucide-react";
+import { Search, Filter, ShoppingCart, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import heroBg from "@/assets/hero-bg.jpg";
 import constructionImg from "@/assets/construction.jpg";
 import appliancesImg from "@/assets/appliances.jpg";
 import storeFrontImg from "@/assets/store-front.jpg";
 import constructionSiteImg from "@/assets/construction-site.jpg";
+import HeroSection from "@/components/HeroSection";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -162,23 +164,14 @@ const Products = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section
-        className="relative py-32 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-foreground/70"></div>
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Our Products
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90">
-              Premium quality building materials and construction supplies for
-              all your projects
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        backgroundImage={heroBg}
+        title="Our Products"
+        subtitle="Premium quality building materials and construction supplies for all your projects"
+        minHeight="min-h-[80vh]"
+        overlayOpacity={0.6}
+        animate={true}
+      />
 
       {/* Search and Filter Section */}
       <section className="py-12 bg-muted/30">
@@ -219,76 +212,14 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="container mx-auto px-4 max-w-7xl">
-          {/* Featured Products */}
-          {selectedCategory === "All" && (
-            <div className="mb-16">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-12 h-0.5 bg-primary"></span>
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  Featured Products
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {products
-                  .filter((p) => p.featured)
-                  .map((product) => (
-                    <Card
-                      key={product.id}
-                      className="group overflow-hidden hover:shadow-xl transition-all duration-300"
-                    >
-                      <div className="relative overflow-hidden h-64">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                          Featured
-                        </div>
-                      </div>
-                      <CardContent className="p-6">
-                        <div className="mb-2">
-                          <span className="text-xs text-primary font-semibold tracking-wider">
-                            {product.category}
-                          </span>
-                        </div>
-                        <h3 className="text-2xl font-bold mb-2">
-                          {product.name}
-                        </h3>
-                        <p className="text-muted-foreground mb-4">
-                          {product.description}
-                        </p>
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <span className="text-3xl font-bold text-primary">
-                              {product.price}
-                            </span>
-                            <span className="text-sm text-muted-foreground ml-2">
-                              {product.unit}
-                            </span>
-                          </div>
-                          <Button size="lg" className="gap-2">
-                            <ShoppingCart className="w-4 h-4" />
-                            Inquire
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-              </div>
-            </div>
-          )}
-
           {/* All Products */}
           <div>
             <div className="flex items-center gap-3 mb-8">
               <span className="w-12 h-0.5 bg-primary"></span>
               <h2 className="text-3xl md:text-4xl font-bold">
-                {selectedCategory === "All"
-                  ? "All Products"
-                  : selectedCategory}
+                {selectedCategory === "All" ? "All Products" : selectedCategory}
               </h2>
               <span className="text-muted-foreground">
                 ({filteredProducts.length} items)
@@ -298,26 +229,26 @@ const Products = () => {
               {filteredProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden hover:shadow-lg transition-all duration-300"
+                  className="group overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full"
                 >
-                  <div className="relative overflow-hidden h-48">
+                  <div className="relative overflow-hidden h-48 flex-shrink-0">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <CardContent className="p-4">
+                  <CardContent className="p-4 flex flex-col flex-grow">
                     <div className="mb-1">
                       <span className="text-xs text-primary font-semibold tracking-wider">
                         {product.category}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold mb-2">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2 flex-grow">
                       {product.description}
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto pt-3">
                       <div>
                         <span className="text-xl font-bold text-primary">
                           {product.price}
@@ -326,10 +257,15 @@ const Products = () => {
                           {product.unit}
                         </span>
                       </div>
-                      <Button size="sm" className="gap-2">
-                        <ShoppingCart className="w-3 h-3" />
-                        Inquire
-                      </Button>
+                      <Link to={`/contact`}>
+                        <Button
+                          size="sm"
+                          className="gap-2 bg-primary text-white hover:bg-[#4bc483] hover:text-white transition-colors duration-300"
+                        >
+                          <ShoppingCart className="w-3 h-3" />
+                          Inquire
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
@@ -368,20 +304,20 @@ const Products = () => {
             for your project
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8 py-6"
+            <div
+              className="flex justify-center px-4"
+              data-aos="fade-up"
+              data-aos-duration="100"
             >
-              Contact Our Experts
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              Request a Quote
-            </Button>
+              <Link to={"/contact"}>
+                <button className="flex items-center rounded-full bg-white text-black font-medium px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base relative transition-transform duration-300 hover:scale-105 active:scale-95">
+                  <span className="pr-2 sm:pr-3">CONTACT US</span>
+                  <span className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary -mr-1">
+                    <ArrowRight className="w-4 h-4 text-white" />
+                  </span>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

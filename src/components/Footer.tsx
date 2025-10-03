@@ -7,18 +7,19 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.svg";
 import point from "@/assets/menu-point.svg";
 import sectionBg from "@/assets/sevices.png";
+
 const Footer = () => {
   const quickLinks = [
-    "Home",
-    "About",
-    "Products",
-    "Locations",
-    "Investors",
-
-    "Contact",
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Products", path: "/products" },
+    { name: "Locations", path: "/locations" },
+    { name: "Investors", path: "/investors" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -34,11 +35,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div>
-            <img
-              src={logo}
-              alt="OXIFIX Infra Mart"
-              className="h-12 mb-6 brightness-0 invert"
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                alt="OXIFIX Infra Mart"
+                className="h-12 mb-6 brightness-0 invert"
+              />
+            </Link>
             <p className="text-white leading-relaxed mb-6">
               Our clients, our employees, and our community through our
               commitment to leadership, excellence in craft, and attention to
@@ -79,9 +82,9 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    href={`/${link.toLowerCase()}`}
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
                     className="flex items-center gap-2 text-white hover:text-primary transition-colors group"
                   >
                     <img
@@ -89,8 +92,8 @@ const Footer = () => {
                       alt=""
                       className="w-4 h-4 hover:text-primary"
                     />
-                    {link}
-                  </a>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -133,19 +136,19 @@ const Footer = () => {
 
               {/* Links - Right side */}
               <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm">
-                <a
-                  href="/terms"
+                <Link
+                  to="/terms"
                   className="text-white/60 hover:text-white transition-colors duration-200"
                 >
                   Terms of Service
-                </a>
+                </Link>
                 <span className="text-white/30 hidden md:block">|</span>
-                <a
-                  href="/privacy"
+                <Link
+                  to="/privacy"
                   className="text-white/60 hover:text-white transition-colors duration-200"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </div>
             </div>
           </div>
