@@ -10,6 +10,8 @@ import Investors from "./pages/Investors";
 import Contact from "./pages/Contact";
 import LocationsPage from "./pages/LocationsPage";
 import Products from "./pages/Products";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import { useAOS } from "@/hooks/useAOS";
 
@@ -47,6 +49,16 @@ const pageMetadata = {
     title: "Locations - OXIFIX INFRAMART | Find Our Offices",
     description:
       "Find OXIFIX INFRAMART offices and locations. Visit us for premium construction materials and infrastructure solutions near you.",
+  },
+  "/terms": {
+    title: "Terms of Service - OXIFIX INFRAMART",
+    description:
+      "Read OXIFIX INFRAMART's Terms of Service. Understand your rights and obligations when using our construction materials and infrastructure services.",
+  },
+  "/privacy": {
+    title: "Privacy Policy - OXIFIX INFRAMART",
+    description:
+      "OXIFIX INFRAMART's Privacy Policy. Learn how we collect, use, and protect your personal information and data.",
   },
   "*": {
     title: "Page Not Found - OXIFIX INFRAMART",
@@ -118,6 +130,8 @@ const App = () => {
               <Route path="/investors" element={<Investors />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/locations" element={<LocationsPage />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
