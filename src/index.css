@@ -293,4 +293,19 @@ body,
     max-width: 100%;
     position: relative;
   }
+
+  @keyframes marquee-left-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left-right {
+  animation: marquee-left-to-right 25s linear infinite;
+  display: flex;
+  will-change: transform;
+}
 }

@@ -58,23 +58,62 @@ const Brands: React.FC<BrandsProps> = ({
   useAOS(); // Initialize AOS
 
   // Scrolling Banner Component
-  const ScrollingBanner = () => (
-    <div className="bg-primary text-primary-foreground overflow-hidden w-full">
-      <div className="animate-marquee whitespace-nowrap py-4 sm:py-6 flex items-center gap-6 sm:gap-8">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="flex items-center gap-4 sm:gap-6 lg:gap-8">
-            {bannerContent.items.map((item, index) => (
-              <>
-                <span className="text-base sm:text-xl lg:text-2xl font-bold">
-                  {item}
+const ScrollingBanner = () => (
+  <div className="bg-primary text-primary-foreground overflow-hidden w-full">
+    <div className="animate-marquee whitespace-nowrap py-3 sm:py-4 md:py-6 flex items-center gap-4 sm:gap-6 lg:gap-8">
+      {/* Mobile: Show only 1 repetition */}
+      <div className="sm:hidden flex items-center gap-3">
+        {bannerContent.items.map((item, index) => (
+          <>
+            <span className="text-xs font-bold">
+              {item}
+            </span>
+            {index < bannerContent.items.length - 1 && (
+              <span className="text-xs">
+                {bannerContent.separator}
+              </span>
+            )}
+          </>
+        ))}
+      </div>
+      
+      {/* Desktop/Tablet: Show 3 repetitions */}
+      {[...Array(3)].map((_, i) => (
+        <div key={i} className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
+          {bannerContent.items.map((item, index) => (
+            <>
+              <span className="text-base md:text-xl lg:text-2xl font-bold">
+                {item}
+              </span>
+              {index < bannerContent.items.length - 1 && (
+                <span className="text-base md:text-xl lg:text-2xl">
+                  {bannerContent.separator}
                 </span>
-                {index < bannerContent.items.length - 1 && (
-                  <span className="text-base sm:text-xl lg:text-2xl">
-                    {bannerContent.separator}
-                  </span>
-                )}
-              </>
-            ))}
+              )}
+            </>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+  // New Scrolling Text Banner Component with mobile-optimized text
+  const ScrollingTextBanner = () => (
+    <div className="overflow-hidden py-4 sm:py-6">
+      <div className="animate-marquee-left-right whitespace-nowrap flex items-center">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="inline-flex items-center mx-3 sm:mx-4 md:mx-6 lg:mx-8 flex-shrink-0">
+            {/* Mobile: Short text, Desktop: Full text */}
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
+              {/* <span className="sm:hidden">QUALITY PRODUCTS</span> */}
+              <span className="hidden sm:inline">HIGH-QUALITY PRODUCTS</span>
+            </span>
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary mx-2 sm:mx-3 lg:mx-4">
+              ★
+            </span>
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
+              ONTIME DELIVERY
+            </span>
           </div>
         ))}
       </div>
@@ -89,15 +128,8 @@ const Brands: React.FC<BrandsProps> = ({
     >
       {/* Top Banner - Conditionally Rendered */}
       {showTopBanner && (
-        <div className=" mb-12 sm:mt-16 lg:mt-20">
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-8 sm:mt-10 lg:mt-12 mb-2"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            HIGH-QUALITY PRODUCTS <span className=" text-primary">★ </span>{" "}
-            ONTIME DELIVERY
-          </h2>
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <ScrollingTextBanner />
           <ScrollingBanner />
         </div>
       )}
@@ -139,7 +171,8 @@ const Brands: React.FC<BrandsProps> = ({
 
       {/* Bottom Banner - Conditionally Rendered */}
       {showBottomBanner && (
-        <div className="mt-12  sm:mt-16 lg:mt-20">
+        <div className="mt-12 sm:mt-16 lg:mt-20">
+          <ScrollingTextBanner />
           <ScrollingBanner />
         </div>
       )}
