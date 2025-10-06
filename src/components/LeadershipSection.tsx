@@ -44,10 +44,12 @@ const LeadershipSection: React.FC<LeadershipSectionProps> = ({
     <section className="relative overflow-hidden min-h-[600px] sm:min-h-[700px] md:min-h-[800px] lg:min-h-[900px] py-12 sm:py-16 lg:py-20 bg-[#f4f4f5]">
       {/* Top Background */} {/* Animated Background Image */}
       {topBackgroundImage && (
-        <div
-          className="absolute top-0 left-0 w-full h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
-          style={{ backgroundImage: `url(${topBackgroundImage})` }}
-        />
+         <div
+        className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
+        style={{
+          backgroundImage: `url(${topBackgroundImage})`,
+        }}
+      />
       )}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div

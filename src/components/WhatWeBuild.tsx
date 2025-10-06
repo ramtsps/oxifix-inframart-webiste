@@ -41,11 +41,13 @@ const WhatWeBuild = () => {
       data-aos-duration="600"
     >
       {/* Top background */}
-      <div
-        className="absolute top-0 left-0 w-full h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
-        style={{ backgroundImage: `url(${topBackgroundImage})` }}
+    
+   <div
+        className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
+        style={{
+          backgroundImage: `url(${topBackgroundImage})`,
+        }}
       />
-
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-7xl relative z-10">
         {/* Section Header */}
         <div
@@ -96,12 +98,12 @@ const WhatWeBuild = () => {
                 <p className="text-muted-foreground leading-relaxed mb-6  transition-colors duration-500">
                   {service.description}
                 </p>
-                <Button
+                {/* <Button
                   variant="ghost"
                   className="text-primary bg-transparent hover:bg-transparent hover:text-primary p-0 h-auto font-semibold hover:underline"
                 >
                   Read More <Plus className="w-4 h-4" />
-                </Button>
+                </Button> */}
               </div>
             </div>
           ))}

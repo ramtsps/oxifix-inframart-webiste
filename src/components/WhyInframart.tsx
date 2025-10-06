@@ -12,9 +12,12 @@ const WhyInframart = () => {
   return (
     <section className="pt-24 lg:pt-32 pb-40 lg:pb-52 relative bg-[#f4f4f5]">
       {/* Top background */}
-      <div
-        className="absolute top-0 left-0 w-full h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
-        style={{ backgroundImage: `url(${topBackgroundImage})` }}
+   
+         <div
+        className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
+        style={{
+          backgroundImage: `url(${topBackgroundImage})`,
+        }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

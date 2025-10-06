@@ -59,15 +59,15 @@ const Navigation = () => {
                   window.location.pathname === "/locations");
 
               return (
-                <a
-                  key={item}
-                  href={href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {item}
-                </a>
+    <a
+  key={item}
+  href={href}
+  className={`text-sm font-roboto  font-bold transition-colors hover:text-primary ${
+    isActive ? "text-primary" : "text-foreground"
+  }`}
+>
+  {item}
+</a>
               );
             })}
           </div>

@@ -80,7 +80,7 @@ const Hero = () => {
           data-aos-delay="600"
           data-aos-duration="600"
         >
-          <Link to={"/products"}>
+          <Link to={"/locations"}>
             <button className="flex items-center rounded-full bg-white text-black font-medium px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-base relative transition-transform duration-300 hover:scale-105 active:scale-95">
               <span className="pr-2 sm:pr-3">VISIT OUR STORE</span>
               <span className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary -mr-1">

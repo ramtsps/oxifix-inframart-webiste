@@ -48,7 +48,7 @@ const FAQ = () => {
     <section className="pt-20 sm:pt-32 lg:pt-40 bg-[#F6F6F6] w-full relative overflow-hidden">
       {/* Background Pattern */}
       <div
-        className="absolute top-0 left-0 w-full h-8 sm:h-12 lg:h-16 bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
+        className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
         style={{
           backgroundImage: `url(${top})`,
         }}

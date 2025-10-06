@@ -21,6 +21,7 @@ const WhoWeAre = () => {
           backgroundImage: `url(${sectionBg})`,
         }}
       >
+        
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 lg:gap-20">
             {/* WHO WE ARE - Top on mobile, left on desktop */}

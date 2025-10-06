@@ -74,6 +74,19 @@
   font-style: normal;
   font-display: swap;
 }
+
+
+
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -186,6 +199,10 @@ All colors MUST be HSL.
 
   .font-aexend {
     font-family: "Lexend", sans-serif;
+  }
+    .font-roboto {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1px;
   }
   .bg-dotted {
     background: transparent;
