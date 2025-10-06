@@ -208,13 +208,13 @@ const Testimonials = () => {
               </blockquote>
               <div className="flex items-center gap-3 sm:gap-4 select-none">
                 {/* Avatar - Added for better visual */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
+                {/* <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
                   <img
                     src={testimonials[currentTestimonial].avatar}
                     alt={testimonials[currentTestimonial].name}
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </div> */}
                 <div>
                   <p className="font-bold text-base sm:text-lg lg:text-xl">
                     {testimonials[currentTestimonial].name}
