@@ -59,9 +59,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-white leading-relaxed mb-6">
-              Our clients, our employees, and our community through our
-              commitment to leadership, excellence in craft, and attention to
-              detail.
+              Our customers, our partners, and our community benefit from our commitment to quality, reliability, and seamless service.We deliver excellence in every product, every installation, and every interaction.
             </p>
             <div className="flex gap-4">
               <a
@@ -121,8 +119,7 @@ const Footer = () => {
               <span className="border-b-2 border-white pb-2">Newsletter</span>
             </h3>
             <p className="text-white mb-6">
-              Our clients, our employees, and our community through our
-              commitment.
+              Stay updated with the latest news and insights from Inframart.
             </p>
 
             {newsletterSuccess ? (
