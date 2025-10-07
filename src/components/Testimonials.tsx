@@ -26,10 +26,10 @@ const testimonials = [
 ];
 
 const trustedCompanies = [
-  { name: "R&J Constructions", logo: pic1 },
-  { name: "Metro Builders", logo: pic2 },
-  { name: "Skyline Infrastructure", logo: pic3 },
-  { name: "Green Valley Constructions", logo: pic4 },
+  { name: "R&J Constructions", logo: "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=" },
+  { name: "Metro Builders", logo: "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=" },
+  { name: "Skyline Infrastructure", logo: "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=" },
+  { name: "Green Valley Constructions", logo: "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=" },
 ];
 
 const stats = [
