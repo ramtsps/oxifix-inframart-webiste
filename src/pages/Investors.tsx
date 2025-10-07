@@ -94,7 +94,7 @@ const Investors = () => {
         backgroundImage={storeFront}
         title="  Grow With Us"
         subtitle=" For inquiries, proposals, or detailed investment information, connect with our dedicated Investor Relations team ready to assist and guide you."
-        minHeight="min-h-[80vh]"
+        minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />

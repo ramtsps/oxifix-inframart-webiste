@@ -106,7 +106,7 @@ const Products = () => {
         backgroundImage={heroBg}
         title="Trusted Quality"
         subtitle="High-quality products for every corner of your home."
-        minHeight="min-h-[80vh]"
+        minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />

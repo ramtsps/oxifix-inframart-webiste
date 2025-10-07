@@ -96,7 +96,7 @@ const LocationsPage = () => {
         backgroundImage={storeFront}
         title="Where We Operate"
         subtitle=" Experience our vast collection of construction materials with fast, assisted shopping."
-        minHeight="min-h-[80vh]"
+        minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />

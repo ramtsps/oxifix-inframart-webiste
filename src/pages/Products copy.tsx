@@ -184,7 +184,7 @@ const Products = () => {
         backgroundImage={heroBg}
         title="Our Products"
         subtitle="Premium quality building materials and construction supplies for all your projects"
-        minHeight="min-h-[80vh]"
+        minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />

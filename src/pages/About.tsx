@@ -44,7 +44,7 @@ const About = () => {
         backgroundImage={storeFront}
         title="Our Story"
         subtitle="With innovation, quality, and commitment at our core, Oxifix Inframart is shaping the future of construction one project at a time."
-        minHeight="min-h-[80vh]"
+        minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />

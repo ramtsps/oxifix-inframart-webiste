@@ -81,7 +81,7 @@ const Contact = () => {
           backgroundImage={constructionImage}
           title="Get in Touch"
           subtitle=" We're here to help. Reach out for expert advice, quotes, or any questions about your project."
-          minHeight="min-h-[80vh]"
+          minHeight="min-h-[70vh]"
           overlayOpacity={0.6}
           animate={true}
         />
