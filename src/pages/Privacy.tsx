@@ -10,16 +10,14 @@ const Privacy = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 md:py-24">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
-            <p className="text-lg md:text-xl text-white/90">
-              Last Updated: January 2025
-            </p>
+          
           </div>
         </section>
 
         {/* Content Section */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
+          <div className="container mx-auto px-4 max-w-4xl">            <h1 className="text-3xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+
             <div className="prose prose-lg max-w-none">
               
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 mt-8">
@@ -155,7 +153,7 @@ const Privacy = () => {
               </p>
               <div className="bg-muted p-6 rounded-lg mb-8">
                 <p className="text-foreground font-semibold mb-2">OXIFIX INFRAMART</p>
-                <p className="text-muted-foreground mb-1">Email: privacy@oxifixinframart.com</p>
+                <p className="text-muted-foreground mb-1">Email: info@oxifixinframart.com</p>
                 <p className="text-muted-foreground mb-1">Phone: +91 XXX XXX XXXX</p>
                 <p className="text-muted-foreground">Address: [Your Business Address]</p>
               </div>

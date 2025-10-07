@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Check, Award, ArrowRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import storeFront from "@/assets/store-front.jpg";
+import aboutBg from "@/assets/about.jpg"
 import showroom1 from "@/assets/welcome/pic3.jpg";
 import showroom2 from "@/assets/welcome/pic2.jpg";
 import appliances from "@/assets/welcome/pic1.jpg";
@@ -41,7 +42,7 @@ const About = () => {
       {/* Hero Section */}
 
       <HeroSection
-        backgroundImage={storeFront}
+        backgroundImage={aboutBg}
         title="Our Story"
         subtitle="With innovation, quality, and commitment at our core, Oxifix Inframart is shaping the future of construction one project at a time."
         minHeight="min-h-[70vh]"

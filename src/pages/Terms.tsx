@@ -8,18 +8,16 @@ const Terms = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 md:py-24">
+        <section className="bg-gradient-to-r from-primary to-primary/80 py-16 md:py-24">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Terms of Service</h1>
-            <p className="text-lg md:text-xl text-white/90">
-              Last Updated: January 2025
-            </p>
+            
           </div>
         </section>
 
         {/* Content Section */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
+        <section className="py-10 md:py-12">
+          <div className="container mx-auto px-4 max-w-4xl">            <h1 className="text-3xl md:text-5xl font-bold mb-4">Terms of Service</h1>
+
             <div className="prose prose-lg max-w-none">
               
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 mt-8">

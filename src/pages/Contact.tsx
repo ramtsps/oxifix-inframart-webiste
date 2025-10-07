@@ -12,7 +12,7 @@ import {
   MessageCircle,
   X,
 } from "lucide-react";
-import constructionImage from "@/assets/construction-site.jpg";
+import constructionImage from "@/assets/contact.jpg";
 import HeroSection from "@/components/HeroSection";
 import phoneIcon from "@/assets/icons/phone.png";
 import mailIcon from "@/assets/icons/email.png";

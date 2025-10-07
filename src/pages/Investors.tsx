@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import HeroSection from "@/components/HeroSection";
-import storeFront from "@/assets/store-front.jpg";
+import storeFront from "@/assets/investors.jpg";
 import showroom1 from "@/assets/welcome/pic6.jpg";
 import showroom2 from "@/assets/welcome/pic7.jpg";
 import appliances from "@/assets/appliances.jpg";

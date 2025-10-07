@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/product.jpg";
 import hardwareImg from "@/assets/categories/hardware.jpg";
 import electricalsImg from "@/assets/categories/electricals.jpg";
 import lightsFansImg from "@/assets/categories/lights-fans.jpg";
