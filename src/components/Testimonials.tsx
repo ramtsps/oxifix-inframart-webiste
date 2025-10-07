@@ -9,22 +9,19 @@ import { useAOS } from "@/hooks/useAOS";
 
 const testimonials = [
   {
-    name: "Ravi Krishnan",
-    role: "CEO, R&J Constructions",
-    quote: `"Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin."`,
-    avatar: pic1,
+    name: "Anil Mehta",
+    role: "Project Manager, Shreeji Constructions",
+    quote: `"Investing in Oxifix has been a rewarding experience. The transparency and consistent updates from Inframart made the entire process smooth and reassuring."`,
   },
   {
-    name: "Priya Sharma",
-    role: "Director, Metro Builders",
-    quote: `"Excellent service and quality materials. Their showroom has everything we need for our construction projects. "`,
-    avatar: pic2,
+    name: "Sunita Patel",
+    role: "Architect, Urban Design Studio",
+    quote: `"Oxifix's innovative approach and sustainable model impressed me. Inframart's commitment to quality and timely execution gives me full confidence as an investor."`,
   },
   {
-    name: "Arun Kumar",
-    role: "Founder, Skyline Infrastructure",
-    quote: `"The largest collection of construction materials in Salem. Their team provides exceptional support and guidance for all our project requirements."`,
-    avatar: pic3,
+    name: "Rajesh Iyer",
+    role: "Civil Engineer, Ganga Infrastructure",
+    quote: `"Partnering with Inframart for Oxifix was an easy decision. Their professionalism, market insight, and focus on delivering value make them a trusted investment partner."`,
   },
 ];
 
@@ -238,7 +235,7 @@ const Testimonials = () => {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center justify-end"
               >
                 <div className="mb-1 sm:mb-2 transform md:translate-x-8 lg:translate-x-12 xl:translate-x-20">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black">

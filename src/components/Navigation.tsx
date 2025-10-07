@@ -2,11 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   const navItems = ["HOME", "ABOUT", "PRODUCTS", "LOCATIONS", "INVESTORS"];
 
@@ -20,6 +21,12 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getIsActive = (item: string) => {
+    const path = location.pathname;
+    if (item === "HOME") return path === "/";
+    return path === `/${item.toLowerCase()}`;
+  };
 
   return (
     <nav
@@ -44,30 +51,20 @@ const Navigation = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item, index) => {
-              const href = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
-              const isActive =
-                (item === "HOME" && window.location.pathname === "/") ||
-                (item === "ABOUT" && window.location.pathname === "/about") ||
-                (item === "PRODUCTS" &&
-                  window.location.pathname === "/products") ||
-                (item === "INVESTORS" &&
-                  window.location.pathname === "/investors") ||
-                (item === "CONTACT" &&
-                  window.location.pathname === "/contact") ||
-                (item === "LOCATIONS" &&
-                  window.location.pathname === "/locations");
+            {navItems.map((item) => {
+              const to = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
+              const isActive = getIsActive(item);
 
               return (
-    <a
-  key={item}
-  href={href}
-  className={`text-sm font-roboto  font-bold transition-colors hover:text-primary ${
-    isActive ? "text-primary" : "text-foreground"
-  }`}
->
-  {item}
-</a>
+                <Link
+                  key={item}
+                  to={to}
+                  className={`text-sm font-roboto font-bold transition-colors hover:text-primary ${
+                    isActive ? "text-primary" : "text-foreground"
+                  }`}
+                >
+                  {item}
+                </Link>
               );
             })}
           </div>
@@ -107,35 +104,25 @@ const Navigation = () => {
         >
           <div className="flex flex-col space-y-4 max-w-7xl mx-auto">
             {navItems.map((item) => {
-              const href = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
-              const isActive =
-                (item === "HOME" && window.location.pathname === "/") ||
-                (item === "ABOUT" && window.location.pathname === "/about") ||
-                (item === "PRODUCTS" &&
-                  window.location.pathname === "/products") ||
-                (item === "INVESTORS" &&
-                  window.location.pathname === "/investors") ||
-                (item === "CONTACT" &&
-                  window.location.pathname === "/contact") ||
-                (item === "LOCATIONS" &&
-                  window.location.pathname === "/locations");
+              const to = item === "HOME" ? "/" : `/${item.toLowerCase()}`;
+              const isActive = getIsActive(item);
 
               return (
-                <a
+                <Link
                   key={item}
-                  href={href}
+                  to={to}
                   className={`text-sm font-medium py-3 px-4 rounded-lg transition-colors hover:bg-primary/10 ${
                     isActive ? "text-primary bg-primary/10" : "text-foreground"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}
-                </a>
+                </Link>
               );
             })}
             <div className="pt-4 border-t border-border">
               <Link to="/contact" className="block">
-                <button className="flex items-center justify-between rounded-full bg-primary text-white font-medium px-4 py-3  hover:scale-105 transition-transform duration-200 group">
+                <button className="flex items-center justify-between rounded-full bg-primary text-white font-medium px-4 py-3 hover:scale-105 transition-transform duration-200 group">
                   <span className="pr-2 text-sm sm:text-base font-semibold">
                     CONTACT US
                   </span>

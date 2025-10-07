@@ -34,7 +34,7 @@ const Hero = () => {
           data-aos-duration="600"
         >
           <span className="bg-primary backdrop-blur-sm text-primary-foreground px-4 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-medium">
-            Unleash your Creative Potential
+           Building Tomorrow, Responsibly 
           </span>
         </div>
 

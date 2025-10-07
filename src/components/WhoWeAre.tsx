@@ -151,15 +151,9 @@ const WhoWeAre = () => {
                       data-aos-delay="400"
                     >
                       <p>
-                        Proin Porttitor Pharetra Interdum. Donec Erat Nibh,
-                        Cursus Non Interdum Ac, Fermentum Eget Nisi. Donec Non
-                        Nisi Ut Dolor Sagittis Convallis Eget Ut Ante.
+                       Oxifix Inframart is a trusted partner for developers, contractors, and engineers. Our mission is to simplify construction sourcing through innovation, quality, and service excellence. Backed by industry expertise and strong vendor partnerships, we deliver comprehensive infrastructure and building solutions for residential, commercial, and industrial projects.
                       </p>
-                      <p>
-                        Curabitur Ultricies Dolor Nec Velit Sagittis, At
-                        Eleifend Felis Aliquet. Pellentesque Vulputate Viverra
-                        Risus, A Viverra Magna Bibendum Eu.
-                      </p>
+                  
                     </div>
                   </div>
                 </div>

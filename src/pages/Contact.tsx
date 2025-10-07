@@ -79,15 +79,23 @@ const Contact = () => {
         <Navigation />
         <HeroSection
           backgroundImage={constructionImage}
-          title="Contact Us"
-          subtitle="We Sell Best in class Construction Materials at affordable price with a wide range of collections."
+          title="Get in Touch"
+          subtitle=" We're here to help. Reach out for expert advice, quotes, or any questions about your project."
           minHeight="min-h-[80vh]"
           overlayOpacity={0.6}
           animate={true}
         />
 
         <section className="py-12 sm:py-16 lg:py-24 px-4 bg-[#f4f4f5]">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">   <p
+                    className="text-primary font-normal tracking-wider text-xs sm:text-sm flex items-center justify-center xl:justify-start gap-2 mb-3 sm:mb-4"
+                    data-aos="fade-down"
+                    data-aos-duration="400"
+                    data-aos-delay="200"
+                  >
+                    <span className="w-6 sm:w-8 lg:w-12 h-0.5 bg-white bg-dotted"></span>
+                    {showSuccess ? "THANK YOU" : "LET'S CONNECT"}
+                  </p>
             <div className="flex flex-col xl:flex-row items-center xl:items-start justify-between gap-8 sm:gap-12 xl:gap-16">
               {/* Contact Form - Left Side */}
               <div
@@ -97,15 +105,7 @@ const Contact = () => {
                 data-aos-delay="100"
               >
                 <div className="text-center xl:text-left">
-                  <p
-                    className="text-primary font-normal tracking-wider text-xs sm:text-sm flex items-center justify-center xl:justify-start gap-2 mb-3 sm:mb-4"
-                    data-aos="fade-down"
-                    data-aos-duration="400"
-                    data-aos-delay="200"
-                  >
-                    <span className="w-6 sm:w-8 lg:w-12 h-0.5 bg-white bg-dotted"></span>
-                    {showSuccess ? "THANK YOU" : "LET'S CONNECT"}
-                  </p>
+               
                   <h2
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
                     data-aos="fade-right"
@@ -113,8 +113,8 @@ const Contact = () => {
                     data-aos-delay="300"
                   >
                     {showSuccess
-                      ? "Message Sent Successfully!"
-                      : "We Are Here To Hear From You"}
+                      ? ""
+                      : "We’d Love To Hear From You."}
                   </h2>
                 </div>
 
@@ -127,7 +127,7 @@ const Contact = () => {
                     data-aos-delay="400"
                   >
                     {/* Checkmark Icon */}
-                    <div className="flex justify-center xl:justify-start">
+                    <div className="flex justify-center xl:justify-center">
                       <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center animate-bounce">
                         <svg
                           className="w-10 h-10 text-white"
@@ -145,7 +145,7 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-4 text-center">
                       <h3 className="text-2xl sm:text-3xl font-bold text-primary">
                         Thank You for Reaching Out!
                       </h3>
@@ -153,12 +153,12 @@ const Contact = () => {
                         We've received your message and will get back to you
                         within 24 hours.
                       </p>
-                      <div className="pt-2">
+                    
                         <p className="text-sm text-muted-foreground">
                           Our team will contact you shortly with more
                           information.
                         </p>
-                      </div>
+                    
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-center sm:justify-center">

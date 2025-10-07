@@ -49,28 +49,32 @@ const WhyInframart = () => {
               </p>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                Infra Is A Hidden Gem.
+                Your Trusted Home Solutions Partner
               </h2>
 
-              <div className="space-y-4 text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              <div className="space-y-4   text-muted-foreground leading-relaxed text-base sm:text-lg">
                 <p>
-                  Not many people know that size of the Infra Structure industry
-                  is bigger than the size of popular industries like the beauty
-                  & wellness industry, the fast food industry, and the
-                  diagnostic labs industry.
+           At Inframart, we are committed to making every home project seamless and stress-free.
+From bath fittings and plywood to electricals and paints, we offer everything under one roof.
+Our range of products comes from trusted brands, ensuring quality, durability, and safety.
+With expert guidance at every step, we help our customers make informed choices.
                 </p>
 
                 <p>
-                  You will be surprised to know that 96% of the Infra Structure
-                  industry is unorganised.
+                                We prioritize convenience and reliability in every interaction.
+Timely delivery and personalized support are at the heart of our service.
                 </p>
 
                 <p>
-                  But now with huge investments coming into the industry, it is
-                  now expected to explode just like food delivery (Swiggy,
-                  Zomato), UPI payments (PayTM, PhonePe), and online cabs (Ola,
-                  Uber).
+          Whether building a new home or renovating an existing one, Inframart is your go-to partner.
+Our comprehensive solutions save time and effort, letting you focus on bringing your vision to life.
+We combine innovation and quality to create spaces that are functional, beautiful, and lasting.
+With Inframart, every project becomes a smooth and satisfying experience.
                 </p>
+
+
+
+
               </div>
 
               <Link to="/contact" className="block">

@@ -105,7 +105,7 @@ const Products = () => {
       <HeroSection
         backgroundImage={heroBg}
         title="Trusted Quality"
-        subtitle="Explore our comprehensive range of building materials and construction supplies"
+        subtitle="High-quality products for every corner of your home."
         minHeight="min-h-[80vh]"
         overlayOpacity={0.6}
         animate={true}
@@ -210,10 +210,10 @@ const Products = () => {
    <div className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 ">
   <div className=" max-w-6xl mx-auto bg-primary text-primary-foreground text-center py-12 md:py-16 lg:py-20 rounded-2xl lg:rounded-3xl px-6 sm:px-8 lg:px-12">
     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-      Need Help Finding the Right Product?
+     Looking for the Perfect Product?                      
     </h2>
     <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 lg:mb-10 opacity-90 max-w-3xl mx-auto leading-relaxed">
-      Our experts are ready to assist you in choosing the best materials for your project
+      Our team of experts is here to guide you in selecting the ideal materials for your project.
     </p>
     <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-center">
       <div 

@@ -92,9 +92,8 @@ const Investors = () => {
 
       <HeroSection
         backgroundImage={storeFront}
-        title="  Investors"
-        subtitle=" We Sell Best in class Construction Materials at affordable price
-            with a wide range of collections."
+        title="  Grow With Us"
+        subtitle=" For inquiries, proposals, or detailed investment information, connect with our dedicated Investor Relations team ready to assist and guide you."
         minHeight="min-h-[80vh]"
         overlayOpacity={0.6}
         animate={true}
@@ -103,16 +102,16 @@ const Investors = () => {
       <WhyInframart />
       <Welcome
         badgeText="JOIN US"
-        title="Join Fastest Growing Supply Chain Business"
-        description="Proin Porttitor Pharetra Interdum. Donec Erat Nibh, Cursus Non Interdum Ac, Fermentum."
+        title="Partner with Us for Lasting Growth"
+        description="At Inframart, we believe in creating value through sustainable growth and innovative projects. Join us as an investor to be part of our journey and benefit from our proven expertise and market presence."
         features={[
-          { id: "1", text: "Innovation Eco Power Technologies" },
-          { id: "2", text: "Regularly Maintaining And Organizing Your Tools" },
-          { id: "3", text: "Regularly Organizing And Maintaining Your Tools" },
+          { id: "1", text: "Invest in diverse projects with strong growth potential. " },
+          { id: "2", text: "Benefit from our track record of timely, successful deliveries." },
+          { id: "3", text: "Stay informed with clear updates and open communication." },
         ]}
         testimonial={{
           quote:
-            "We Have Multiple Models Of Engagement: We Can Work Directly With Individuals For Private Residences, Partner.",
+            "Our CEO believes in creating shared value and sustainable growth. Join us to be part of Inframart’s journey toward building a stronger, brighter future together.",
           name: "John Smith",
           position: "CEO & Founder",
           avatar:

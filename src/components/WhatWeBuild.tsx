@@ -10,23 +10,20 @@ import { useAOS } from "@/hooks/useAOS"; // import your AOS hook
 const services = [
   {
     number: "01",
-    title: "Building Construction",
-    description:
-      "Our solutions are designed to meet the needs of modern enterprises, ensuring they thrive in today's competitive online landscape. Enterprises, ensuring they thrive in today's competitive online landscape.",
+    title: "Complete Home Solutions",
+    description: "We offer everything you need under one roof – from bath fittings and plywood to electricals and paints – making home creation effortless and convenient.",
     bgImage: serviceImg01,
   },
   {
     number: "02",
-    title: "Building Construction",
-    description:
-      "Our solutions are designed to meet the needs of modern enterprises, ensuring they thrive in today's competitive online landscape. Enterprises, ensuring they thrive in today's competitive online landscape.",
+    title: "Quality & Reliability",
+    description: "Our products are sourced from trusted brands, ensuring durability, safety, and long-lasting performance for every corner of your home.",
     bgImage: serviceImg02,
   },
   {
     number: "03",
-    title: "Building Construction",
-    description:
-      "Our solutions are designed to meet the needs of modern enterprises, ensuring they thrive in today's competitive online landscape. Enterprises, ensuring they thrive in today's competitive online landscape.",
+    title: "Simplified Shopping Experience",
+    description: "With all essentials available in one place, we save your time and effort, providing a seamless experience from selection to delivery for every home project.",
     bgImage: serviceImg03,
   },
 ];
@@ -60,7 +57,7 @@ const WhatWeBuild = () => {
             ···················· OUR BLOG & NEWS ··················
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            What We Build For Customers
+          Building Dreams for Our Customers
           </h2>
         </div>
 

@@ -11,31 +11,26 @@ import { useAOS } from "@/hooks/useAOS";
 
 const faqs = [
   {
-    question: "Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam?",
-    answer:
-      "Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin. Pellentesque Habitant Morbi Tristique Senectus Et Netus Et Malesuada Fames Ac Turpis Egestas. Sed Gravida Ac Turpis Sed Maximus.",
+    question: "What types of products does Oxifix Inframart supply?",
+    answer: "Oxifix Inframart offers a comprehensive range of construction and home improvement materials — including electricals, plumbing, sanitaryware, paints, tiles, hardware, tools, kitchen fittings, and appliances. We ensure all products meet industry standards and are sourced from trusted national and international brands.",
     isOpen: true,
   },
   {
-    question: "Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam?",
-    answer:
-      "Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin.",
+    question: "Do you supply materials for both residential and commercial projects?",
+    answer: "Yes. We cater to a wide client base — from individual homeowners and builders to large-scale infrastructure, commercial, and industrial projects.",
     isOpen: false,
   },
   {
-    question: "Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam?",
-    answer:
-      "Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin.",
+    question: "How can I place an order or get a quotation?",
+    answer: "You can connect with our sales team through the 'Contact Us' page, call our corporate office, or visit our nearest Oxifix Inframart location. Our representatives will assist you with quotations, bulk pricing, and delivery schedules.",
     isOpen: false,
   },
   {
-    question: "Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam?",
-    answer:
-      "Sed Aliquet Mi Orci, Porta Condimentum Nulla Accumsan Eget. Curabitur Vulputate Erat Tellus. Phasellus Facilisis Quam A Lorem Sollicitudin.",
+    question: "Do you provide delivery and logistics support?",
+    answer: "Yes. We have a well-structured logistics network across India to ensure timely and secure delivery of materials to all client locations.",
     isOpen: false,
   },
 ];
-
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number>(0);
   useAOS(); // Initialize AOS

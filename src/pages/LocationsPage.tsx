@@ -94,9 +94,8 @@ const LocationsPage = () => {
 
       <HeroSection
         backgroundImage={storeFront}
-        title="Locations"
-        subtitle=" We Sell Best in class Construction Materials at affordable price
-            with a wide range of collections."
+        title="Where We Operate"
+        subtitle=" Experience our vast collection of construction materials with fast, assisted shopping."
         minHeight="min-h-[80vh]"
         overlayOpacity={0.6}
         animate={true}
