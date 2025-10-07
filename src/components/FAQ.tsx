@@ -75,7 +75,7 @@ const FAQ = () => {
               data-aos="fade-up"
               data-aos-delay="150"
             >
-              <span className="w-8 sm:w-12 h-0.5 bg-primary"></span>
+                <span className="w-6 sm:w-8 lg:w-12 h-0.5 bg-dotted bg-primary"></span>
               WHO WE ARE
             </p>
             <h2

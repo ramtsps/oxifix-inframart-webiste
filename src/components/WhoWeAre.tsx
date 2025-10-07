@@ -1,9 +1,9 @@
 // WhoWeAre.tsx
 import { Building2, Package } from "lucide-react";
 import showroom1 from "@/assets/showroom-1.jpg";
-import showroom2 from "@/assets/showroom-2.jpg";
-import appliances from "@/assets/appliances.jpg";
-import construction from "@/assets/construction.jpg";
+import showroom2 from "@/assets/who-we-are/pic3.jpg";
+import appliances from "@/assets/who-we-are/pic1.jpg";
+import construction from "@/assets/who-we-are/pic2.jpg";
 import under from "@/assets/who-we-are/under.png";
 import sectionBg from "@/assets/sevices.png";
 import buildingIcon from "@/assets/building.png";

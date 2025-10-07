@@ -16,22 +16,22 @@ interface LeadershipSectionProps {
 }
 const teamMembers = [
   {
-    name: "Mr. Rajesh Kumar",
-    role: "Founder & CEO",
+    name: "Mr. Moovendan Murugan",
+    role: "CEO & Founder",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop",
+      "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
   },
   {
-    name: "Mr. Rajesh Kumar",
-    role: "Founder & CEO",
+    name: "Mr. Moovendan Murugan",
+    role: "CEO & Founder",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
   },
   {
-    name: "Mr. Rajesh Kumar",
-    role: "Founder & CEO",
+    name: "Mr. Moovendan Murugan",
+    role: "CEO & Founder",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
   },
 ];
 const LeadershipSection: React.FC<LeadershipSectionProps> = ({

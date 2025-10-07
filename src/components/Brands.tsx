@@ -33,45 +33,51 @@ const Brands: React.FC<BrandsProps> = ({
   useAOS(); // Initialize AOS
 
   // Scrolling Banner Component
-  const ScrollingBanner = () => (
-    <div className="bg-primary text-primary-foreground overflow-hidden w-full">
-      <div className="animate-marquee whitespace-nowrap py-3 sm:py-4 md:py-6 flex items-center gap-4 sm:gap-6 lg:gap-8">
-        {/* Mobile: Show only 1 repetition */}
-        <div className="sm:hidden flex items-center gap-3">
-          {bannerContent.items.map((item, index) => (
-            <>
-              <span className="text-xs font-bold">
-                {item}
-              </span>
-              {index < bannerContent.items.length  && (
-                <span className="text-xs">
-                  {bannerContent.separator}
-                </span>
-              )}
-            </>
-          ))}
-        </div>
-        
-        {/* Desktop/Tablet: Show 3 repetitions */}
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
+ const ScrollingBanner = () => (
+  <div className="bg-primary text-primary-foreground overflow-hidden w-full">
+    <div className="animate-marquee whitespace-nowrap py-3 sm:py-4 md:py-6 flex items-center">
+      {/* Mobile: Show 2 repetitions with proper separator */}
+      <div className="sm:hidden flex items-center gap-3">
+        {[...Array(1)].map((_, repetitionIndex) => (
+          <div key={repetitionIndex} className="flex items-center gap-3">
             {bannerContent.items.map((item, index) => (
-              <>
-                <span className="text-base md:text-xl lg:text-2xl font-bold">
+              <div key={`mobile-${repetitionIndex}-${index}`} className="flex items-center gap-3">
+                <span className="text-xs font-bold whitespace-nowrap">
                   {item}
                 </span>
-                {index < bannerContent.items.length - 1 && (
+               
+                  <span className="text-xs">
+                    {bannerContent.separator}
+                  </span>
+                
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+      
+      {/* Desktop/Tablet: Show 3 repetitions with proper separator */}
+      <div className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
+        {[...Array(3)].map((_, repetitionIndex) => (
+          <div key={repetitionIndex} className="flex items-center gap-4 md:gap-6 lg:gap-8">
+            {bannerContent.items.map((item, index) => (
+              <div key={`desktop-${repetitionIndex}-${index}`} className="flex items-center gap-4 md:gap-6 lg:gap-8">
+                <span className="text-base md:text-xl lg:text-2xl font-bold whitespace-nowrap">
+                  {item}
+                </span>
+             
                   <span className="text-base md:text-xl lg:text-2xl">
                     {bannerContent.separator}
                   </span>
-                )}
-              </>
+               
+              </div>
             ))}
           </div>
         ))}
       </div>
     </div>
-  );
+  </div>
+);
 
   // New Scrolling Text Banner Component with mobile-optimized text
 const ScrollingTextBanner = () => (

@@ -112,10 +112,10 @@ const Investors = () => {
         testimonial={{
           quote:
             "Our CEO believes in creating shared value and sustainable growth. Join us to be part of Inframart’s journey toward building a stronger, brighter future together.",
-          name: "John Smith",
+          name: "Mr. Moovendan Murugan",
           position: "CEO & Founder",
           avatar:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop",
+            "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
         }}
         award={{
           icon: awardIcon,
