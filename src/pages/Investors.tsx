@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/accordion";
 import HeroSection from "@/components/HeroSection";
 import storeFront from "@/assets/store-front.jpg";
-import showroom1 from "@/assets/showroom-1.jpg";
-import showroom2 from "@/assets/welcome/pic5.jpg";
+import showroom1 from "@/assets/welcome/pic6.jpg";
+import showroom2 from "@/assets/welcome/pic7.jpg";
 import appliances from "@/assets/appliances.jpg";
 import awardIcon from "@/assets/awards-icon.png";
 import Welcome from "@/components/Welcome";
