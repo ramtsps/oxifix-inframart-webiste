@@ -292,6 +292,7 @@ body,
     width: 100%;
     max-width: 100%;
     position: relative;
+    letter-spacing: 1px;
   }
 
   @keyframes marquee-left-to-right {

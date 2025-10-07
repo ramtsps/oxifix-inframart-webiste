@@ -31,6 +31,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -40,34 +41,60 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData);
-
-      // Show success message
-      setShowSuccess(true);
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
+      // Web3Forms configuration
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "fe5f5511-e21b-4b4e-9ef4-74ad9105e159", // Replace with your actual access key
+          subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          from_name: "Oxifix Inframart Website",
+          // Optional: Add custom redirect URL
+          // redirect: "https://yourdomain.com/thank-you"
+        }),
       });
 
-      // Hide success message after 5 seconds
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message
+        setShowSuccess(true);
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || "Failed to submit form");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
+      setError(
+        error instanceof Error 
+          ? error.message 
+          : "There was an error sending your message. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -87,15 +114,17 @@ const Contact = () => {
         />
 
         <section className="py-12 sm:py-16 lg:py-24 px-4 bg-[#f4f4f5]">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">   <p
-                    className="text-primary font-normal tracking-wider text-xs sm:text-sm flex items-center justify-center xl:justify-start gap-2 mb-3 sm:mb-4"
-                    data-aos="fade-down"
-                    data-aos-duration="400"
-                    data-aos-delay="200"
-                  >
-                    <span className="w-6 sm:w-8 lg:w-12 h-0.5 bg-white bg-dotted"></span>
-                    {showSuccess ? "THANK YOU" : "LET'S CONNECT"}
-                  </p>
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">   
+            <p
+              className="text-primary font-normal tracking-wider text-xs sm:text-sm flex items-center justify-center xl:justify-start gap-2 mb-3 sm:mb-4"
+              data-aos="fade-down"
+              data-aos-duration="400"
+              data-aos-delay="200"
+            >
+              <span className="w-6 sm:w-8 lg:w-12 h-0.5 bg-white bg-dotted"></span>
+              {showSuccess ? "THANK YOU" : "LET'S CONNECT"}
+            </p>
+            
             <div className="flex flex-col xl:flex-row items-center xl:items-start justify-between gap-8 sm:gap-12 xl:gap-16">
               {/* Contact Form - Left Side */}
               <div
@@ -105,7 +134,6 @@ const Contact = () => {
                 data-aos-delay="100"
               >
                 <div className="text-center xl:text-left">
-               
                   <h2
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
                     data-aos="fade-right"
@@ -114,7 +142,7 @@ const Contact = () => {
                   >
                     {showSuccess
                       ? ""
-                      : "We’d Love To Hear From You."}
+                      : "We'd Love To Hear From You."}
                   </h2>
                 </div>
 
@@ -153,12 +181,10 @@ const Contact = () => {
                         We've received your message and will get back to you
                         within 24 hours.
                       </p>
-                    
-                        <p className="text-sm text-muted-foreground">
-                          Our team will contact you shortly with more
-                          information.
-                        </p>
-                    
+                      <p className="text-sm text-muted-foreground">
+                        Our team will contact you shortly with more
+                        information.
+                      </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-center sm:justify-center">
@@ -181,6 +207,17 @@ const Contact = () => {
                     data-aos-delay="400"
                     onSubmit={handleSubmit}
                   >
+                    {/* Error Message */}
+                    {error && (
+                      <div
+                        className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg"
+                        data-aos="fade-up"
+                        data-aos-duration="400"
+                      >
+                        <p className="text-sm">{error}</p>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div
                         className="w-full"
@@ -194,6 +231,7 @@ const Contact = () => {
                           value={formData.firstName}
                           onChange={handleInputChange}
                           required
+                          disabled={isSubmitting}
                           className="h-10 sm:h-12 bg-white border-border w-full transition-all duration-200 hover:border-primary focus:border-primary"
                         />
                       </div>
@@ -209,6 +247,7 @@ const Contact = () => {
                           value={formData.lastName}
                           onChange={handleInputChange}
                           required
+                          disabled={isSubmitting}
                           className="h-10 sm:h-12 bg-white border-border w-full transition-all duration-200 hover:border-primary focus:border-primary"
                         />
                       </div>
@@ -228,6 +267,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
+                          disabled={isSubmitting}
                           className="h-10 sm:h-12 bg-white border-border w-full transition-all duration-200 hover:border-primary focus:border-primary"
                         />
                       </div>
@@ -244,6 +284,7 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           required
+                          disabled={isSubmitting}
                           className="h-10 sm:h-12 bg-white border-border w-full transition-all duration-200 hover:border-primary focus:border-primary"
                         />
                       </div>
@@ -261,6 +302,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
                         rows={4}
                         className="bg-white border-border resize-none w-full transition-all duration-200 hover:border-primary focus:border-primary min-h-[120px] sm:min-h-[150px]"
                       />

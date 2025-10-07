@@ -43,13 +43,13 @@ const WhoWeAre = () => {
               data-aos-delay="200"
             >
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-tight">
-                The Largest Showroom For
+                The Largest Showroom for
                 <br />
                 All{" "}
                 <span className="bg-primary text-white px-1">
                   Construction Needs
                 </span>{" "}
-                In <br className="hidden sm:block" /> Salem, Tamil Nadu
+                in <br className="hidden sm:block" /> Salem, Tamil Nadu
               </h1>
             </div>
           </div>
@@ -143,7 +143,7 @@ const WhoWeAre = () => {
                       data-aos="fade-up"
                       data-aos-delay="300"
                     >
-                      We Are The Change!
+                      We are the change!
                     </h2>
                     <div
                       className="space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base"

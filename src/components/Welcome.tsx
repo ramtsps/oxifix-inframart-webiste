@@ -243,7 +243,7 @@ const Welcome: React.FC<DynamicSectionProps> = ({
       {/* Award */}
       {award && variant !== "featured" && (
         <div
-          className="absolute -bottom-10 sm:-bottom-20 md:-bottom-[0px] lg:-bottom-[40px] left-2 sm:left-[-6px] md:left-4 lg:left-[-20px]"
+          className="absolute -bottom-10 sm:-bottom-20 md:-bottom-[0px] lg:-bottom-[40px] left-2 sm:left-[-6px] md:left-4 lg:left-[-30px]"
           data-aos="fade-up"
           data-aos-delay="700"
         >

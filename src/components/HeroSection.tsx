@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="text-center text-white max-w-4xl px-4">
+      <div className="text-center text-white max-w-5xl px-4">
         <h1
           className={`text-6xl md:text-8xl font-bold mb-8 ${
             animate ? "animate-fade-in" : ""
