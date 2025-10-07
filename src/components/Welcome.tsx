@@ -204,14 +204,14 @@ const Welcome: React.FC<DynamicSectionProps> = ({
           <img
             src={images.main}
             alt="Main showcase"
-            className="w-60 h-48 md:w-full sm: sm:h-64 md:h-72 lg:h-80 object-cover rounded-3xl hover:scale-105 transition-transform duration-300 border-2 sm:border-4 border-white"
+            className="w-60 h-48 md:w-full sm: sm:h-64 md:h-72 lg:h-80 object-cover rounded-3xl border-2 sm:border-4 border-white"
           />
 
           {/* On mobile, overlap secondary[0] from the TOP */}
           <img
             src={images.secondary[0]}
             alt="Secondary image 1"
-            className="absolute -top-6 left-[60%] -translate-x-1/2 w-2/3 h-48 object-cover rounded-2xl hover:scale-105 transition-transform duration-300 border-2 border-white sm:hidden"
+            className="absolute -top-6 left-[60%] -translate-x-1/2 w-2/3 h-48 object-cover rounded-2xl hover:scale-105 transition-transform duration-300 border-2 border-white sm:hidden z-10"
             data-aos="fade-left"
             data-aos-delay="400"
           />

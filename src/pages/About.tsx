@@ -3,9 +3,9 @@ import Footer from "@/components/Footer";
 import { Check, Award, ArrowRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import storeFront from "@/assets/store-front.jpg";
-import showroom1 from "@/assets/showroom-1.jpg";
-import showroom2 from "@/assets/showroom-2.jpg";
-import appliances from "@/assets/appliances.jpg";
+import showroom1 from "@/assets/welcome/pic3.jpg";
+import showroom2 from "@/assets/welcome/pic2.jpg";
+import appliances from "@/assets/welcome/pic1.jpg";
 import {
   Collapsible,
   CollapsibleContent,
