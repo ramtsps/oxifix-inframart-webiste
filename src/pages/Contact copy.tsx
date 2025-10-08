@@ -45,39 +45,89 @@ const Contact = () => {
     if (error) setError("");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   setError("");
+
+  //   try {
+  //     // Web3Forms configuration
+  //     const response = await fetch("https://api.web3forms.com/submit", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         access_key: "fe5f5511-e21b-4b4e-9ef4-74ad9105e159", // Replace with your actual access key
+  //         subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
+  //         firstName: formData.firstName,
+  //         lastName: formData.lastName,
+  //         email: formData.email,
+  //         phone: formData.phone,
+  //         message: formData.message,
+  //         from_name: "Oxifix Inframart Website",
+  //         // Optional: Add custom redirect URL
+  //         // redirect: "https://yourdomain.com/thank-you"
+  //       }),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (result.success) {
+  //       // Show success message
+  //       setShowSuccess(true);
+
+  //       // Reset form
+  //       setFormData({
+  //         firstName: "",
+  //         lastName: "",
+  //         email: "",
+  //         phone: "",
+  //         message: "",
+  //       });
+  //     } else {
+  //       throw new Error(result.message || "Failed to submit form");
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error);
+  //     setError(
+  //       error instanceof Error 
+  //         ? error.message 
+  //         : "There was an error sending your message. Please try again."
+  //     );
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+
+
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
     try {
-      // Web3Forms configuration
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Formspree configuration using FormData (recommended approach)
+      const formDataToSend = new FormData();
+      formDataToSend.append('Name', formData.firstName);
+      formDataToSend.append('Last Name', formData.lastName);
+      formDataToSend.append('Email', formData.email);
+      formDataToSend.append('Phone', formData.phone);
+      formDataToSend.append('Message', formData.message);
+      formDataToSend.append('subject', `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
+      
+
+      const response = await fetch("https://formspree.io/f/manpdblb", {
         method: "POST",
+        body: formDataToSend,
         headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "fe5f5511-e21b-4b4e-9ef4-74ad9105e159", // Replace with your actual access key
-          subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          from_name: "Oxifix Inframart Website",
-          // Optional: Add custom redirect URL
-          // redirect: "https://yourdomain.com/thank-you"
-        }),
+          'Accept': 'application/json'
+        }
       });
 
-      const result = await response.json();
-
-      if (result.success) {
-        // Show success message
+      if (response.ok) {
         setShowSuccess(true);
-
-        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -86,7 +136,8 @@ const Contact = () => {
           message: "",
         });
       } else {
-        throw new Error(result.message || "Failed to submit form");
+        const result = await response.json();
+        throw new Error(result.error || "Failed to submit form");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -100,107 +151,6 @@ const Contact = () => {
     }
   };
 
-
-
-//  const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
-//     setError("");
-
-//     try {
-//       // Formspree configuration using FormData (recommended approach)
-//       const formDataToSend = new FormData();
-//       formDataToSend.append('Name', formData.firstName);
-//       formDataToSend.append('Last Name', formData.lastName);
-//       formDataToSend.append('Email', formData.email);
-//       formDataToSend.append('Phone', formData.phone);
-//       formDataToSend.append('Message', formData.message);
-//       formDataToSend.append('subject', `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
-      
-
-//       const response = await fetch("https://formspree.io/f/manpdblb", {
-//         method: "POST",
-//         body: formDataToSend,
-//         headers: {
-//           'Accept': 'application/json'
-//         }
-//       });
-
-//       if (response.ok) {
-//         setShowSuccess(true);
-//         setFormData({
-//           firstName: "",
-//           lastName: "",
-//           email: "",
-//           phone: "",
-//           message: "",
-//         });
-//       } else {
-//         const result = await response.json();
-//         throw new Error(result.error || "Failed to submit form");
-//       }
-//     } catch (error) {
-//       console.error("Form submission error:", error);
-//       setError(
-//         error instanceof Error 
-//           ? error.message 
-//           : "There was an error sending your message. Please try again."
-//       );
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-
-// const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
-//     setError("");
-
-//     try {
-//       // Prepare data for local PHP API
-//       const emailData = {
-//         firstName: formData.firstName,
-//         lastName: formData.lastName,
-//         email: formData.email,
-//         phone: formData.phone,
-//         message: formData.message,
-//         subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`
-//       };
-
-//       const response = await fetch("http://localhost/email-api/send-email.php", {
-//         method: "POST",
-//         body: JSON.stringify(emailData),
-//         headers: {
-//           'Content-Type': 'application/json',
-//           'Accept': 'application/json'
-//         }
-//       });
-
-//       if (response.ok) {
-//         setShowSuccess(true);
-//         setFormData({
-//           firstName: "",
-//           lastName: "",
-//           email: "",
-//           phone: "",
-//           message: "",
-//         });
-//       } else {
-//         const result = await response.json();
-//         throw new Error(result.error || "Failed to submit form");
-//       }
-//     } catch (error) {
-//       console.error("Form submission error:", error);
-//       setError(
-//         error instanceof Error 
-//           ? error.message 
-//           : "There was an error sending your message. Please try again."
-//       );
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
   return (
     <>
       <div className="min-h-screen bg-[#f4f4f5]">

@@ -94,7 +94,7 @@ const ScrollingTextBanner = () => (
               ★
             </span>
             <span className="text-base font-bold">
-              All-In-One 
+              All-In One 
             </span>
             <span className="text-base text-primary mx-2">
               ★
@@ -105,7 +105,7 @@ const ScrollingTextBanner = () => (
       
       {/* Desktop: Show 4 repetitions */}
       <div className="hidden sm:flex items-center flex-shrink-0">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(5)].map((_, i) => (
           <div key={i} className="inline-flex items-center flex-shrink-0">
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
               Built Excellence
@@ -114,7 +114,7 @@ const ScrollingTextBanner = () => (
               ★
             </span>
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold">
-              All-In-One Solution
+              All-In One 
             </span>
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary mx-2 sm:mx-3 lg:mx-4">
               ★
