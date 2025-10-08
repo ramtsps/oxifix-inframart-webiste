@@ -99,6 +99,54 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+//  const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+//     setError("");
+
+//     try {
+//       // Formspree configuration using FormData (recommended approach)
+//       const formDataToSend = new FormData();
+//       formDataToSend.append('firstName', formData.firstName);
+//       formDataToSend.append('lastName', formData.lastName);
+//       formDataToSend.append('email', formData.email);
+//       formDataToSend.append('phone', formData.phone);
+//       formDataToSend.append('message', formData.message);
+//       formDataToSend.append('_subject', `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
+//       formDataToSend.append('_replyto', formData.email);
+
+//       const response = await fetch("https://formspree.io/f/manpdblb", {
+//         method: "POST",
+//         body: formDataToSend,
+//         headers: {
+//           'Accept': 'application/json'
+//         }
+//       });
+
+//       if (response.ok) {
+//         setShowSuccess(true);
+//         setFormData({
+//           firstName: "",
+//           lastName: "",
+//           email: "",
+//           phone: "",
+//           message: "",
+//         });
+//       } else {
+//         const result = await response.json();
+//         throw new Error(result.error || "Failed to submit form");
+//       }
+//     } catch (error) {
+//       console.error("Form submission error:", error);
+//       setError(
+//         error instanceof Error 
+//           ? error.message 
+//           : "There was an error sending your message. Please try again."
+//       );
+//     } finally {
+//       setIsSubmitting(false);
+//     }
+//   };
 
   return (
     <>
