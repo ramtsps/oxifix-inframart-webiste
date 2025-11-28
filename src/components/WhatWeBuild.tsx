@@ -38,8 +38,8 @@ const WhatWeBuild = () => {
       data-aos-duration="600"
     >
       {/* Top background */}
-    
-   <div
+
+      <div
         className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
         style={{
           backgroundImage: `url(${topBackgroundImage})`,
@@ -57,7 +57,7 @@ const WhatWeBuild = () => {
             ···················· OUR BLOG & NEWS ··················
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-          Building Dreams for Our Customers
+            Building Dreams for Our Customers
           </h2>
         </div>
 
@@ -66,41 +66,30 @@ const WhatWeBuild = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative overflow-hidden bg-card p-8 rounded-3xl border cursor-pointer group transition-all duration-500"
+              className="relative overflow-hidden bg-card p-8 rounded-3xl border-2 border-border  group transition-all duration-500 hover:border-primary hover:shadow-lg"
               data-aos="fade-up"
               data-aos-duration="400"
               data-aos-delay={index * 150}
             >
-              {/* Background image with black overlay */}
-              <div
-                className="absolute inset-0 bg-center bg-cover opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-hover-scale"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${service.bgImage})`,
-                }}
-              ></div>
-
               {/* Content */}
               <div className="relative z-10">
-                <div
-                  className="[-webkit-text-stroke:1px_#14AE5C] md:[-webkit-text-stroke:2px_#14AE5C] text-6xl font-bold mb-6 leading-none text-right"
-                  style={{
-                    WebkitTextStroke: "1px #14AE5C",
-                    paintOrder: "stroke fill",
-                    color: "transparent",
-                  }}
-                >
-                  {service.number}
+                <div className="flex items-center justify-between mb-6">
+                  <div
+                    className="[-webkit-text-stroke:1px_#14AE5C] text-4xl font-bold leading-none"
+                    style={{
+                      WebkitTextStroke: "1px #14AE5C",
+                      paintOrder: "stroke fill",
+                      color: "transparent",
+                    }}
+                  >
+                    {service.number}
+                  </div>
+                  <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-150 transition-transform duration-300"></div>
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6  transition-colors duration-500">
+                <p className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
-                {/* <Button
-                  variant="ghost"
-                  className="text-primary bg-transparent hover:bg-transparent hover:text-primary p-0 h-auto font-semibold hover:underline"
-                >
-                  Read More <Plus className="w-4 h-4" />
-                </Button> */}
               </div>
             </div>
           ))}

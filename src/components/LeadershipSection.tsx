@@ -132,9 +132,9 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         </div>
 
         {/* Info Card - Improved responsive spacing */}
-        <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between -mt-16 relative z-20 mx-2 sm:mx-3 lg:mx-1 transition-all duration-300 ease-out group-hover:scale-105 group-hover:shadow-lg">
+        <div className="bg-background rounded-xl sm:rounded-2xl pl-4 pr-4 pt-3 pb-3 sm:pl-5 sm:pr-5 lg:pl-6 lg:pr-6 flex-1 flex flex-col justify-between -mt-16 relative z-20 mx-2 sm:mx-3 lg:mx-1 transition-all duration-300 ease-out group-hover:scale-105 group-hover:shadow-lg">
           <div className="relative z-10 flex-1 flex flex-col">
-            <h3 className="font-bold text-base sm:text-lg lg:text-lg mb-1 sm:mb-2 transition-colors duration-300 group-hover:text-primary leading-tight break-words">
+            <h3 className="font-bold text-base sm:text-lg lg:text-lg transition-colors duration-300 group-hover:text-primary leading-tight break-words">
               {name}
             </h3>
             <p className="text-muted-foreground text-sm sm:text-base lg:text-lg transition-colors duration-300 group-hover:text-foreground leading-relaxed break-words">
