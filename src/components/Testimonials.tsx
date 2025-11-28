@@ -9,20 +9,31 @@ import { useAOS } from "@/hooks/useAOS";
 
 const testimonials = [
   {
-    name: "Anil Mehta",
-    role: "Project Manager, Shreeji Constructions",
+    name: "Rajesh Kumar",
+    role: "Project Manager, Chennai Builders & Developers",
     quote: `"Investing in Oxifix has been a rewarding experience. The transparency and consistent updates from Inframart made the entire process smooth and reassuring."`,
   },
   {
-    name: "Sunita Patel",
-    role: "Architect, Urban Design Studio",
+    name: "Priya Sundaram",
+    role: "Architect, Madurai Design Studio",
     quote: `"Oxifix's innovative approach and sustainable model impressed me. Inframart's commitment to quality and timely execution gives me full confidence as an investor."`,
   },
   {
-    name: "Rajesh Iyer",
-    role: "Civil Engineer, Ganga Infrastructure",
+    name: "Arun Balaji",
+    role: "Civil Engineer, Coimbatore Infrastructure Ltd",
     quote: `"Partnering with Inframart for Oxifix was an easy decision. Their professionalism, market insight, and focus on delivering value make them a trusted investment partner."`,
   },
+  {
+    name: "Lakshmi Narayanan",
+    role: "Construction Manager, Salem Projects Pvt Ltd",
+    quote: `"The quality of materials and timely delivery from Oxifix Inframart has significantly improved our project timelines. A reliable partner for all infrastructure needs."`,
+  },
+  {
+    name: "Karthik Subramanian",
+    role: "Site Engineer, Tiruppur Constructions",
+    quote: `"Oxifix Inframart's products have proven to be durable and cost-effective. Their technical support and after-sales service are exceptional."`,
+  },
+
 ];
 
 const trustedCompanies = [
@@ -34,9 +45,9 @@ const trustedCompanies = [
 
 const stats = [
   { number: "32", label: "Categories", color: "bg-muted" },
-  { number: "1.2m", label: "Sq.Ft Of Showroom", color: "bg-muted" },
-  { number: "12", label: "Locations", color: "bg-muted" },
-  { number: "100", label: "Success Stories", color: "bg-muted" },
+  { number: "13,000", label: "Sq.Ft Of Showroom", color: "bg-muted" },
+  { number: "4.6", label: "Google Rating", color: "bg-muted" },
+  { number: "1 Lakh", label: "Happy Customers", color: "bg-muted" },
 ];
 
 const Testimonials = () => {
@@ -54,7 +65,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextTestimonial();
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -137,11 +148,10 @@ const Testimonials = () => {
           <button
             key={index}
             onClick={() => goToTestimonial(index)}
-            className={`rounded-full transition-all duration-300 ${
-              index === currentTestimonial
-                ? "bg-black ring-1 sm:ring-2 w-2 h-2 sm:w-3 sm:h-3 ring-black ring-offset-1 sm:ring-offset-2 ring-offset-white"
-                : "bg-gray-300 hover:bg-gray-400 w-1.5 h-1.5 sm:w-2 sm:h-2"
-            }`}
+            className={`rounded-full transition-all duration-300 ${index === currentTestimonial
+              ? "bg-black ring-1 sm:ring-2 w-2 h-2 sm:w-3 sm:h-3 ring-black ring-offset-1 sm:ring-offset-2 ring-offset-white"
+              : "bg-gray-300 hover:bg-gray-400 w-1.5 h-1.5 sm:w-2 sm:h-2"
+              }`}
           />
         ))}
       </div>
@@ -155,7 +165,7 @@ const Testimonials = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <div className="flex -space-x-3 sm:-space-x-4">
+            {/* <div className="flex -space-x-3 sm:-space-x-4">
               {trustedCompanies.map((company, index) => (
                 <div
                   key={index}
@@ -168,13 +178,13 @@ const Testimonials = () => {
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
             <div>
               <p className="text-xs sm:text-sm text-muted-foreground">
                 Trusted By
               </p>
               <p className="font-semibold text-sm sm:text-base">
-                Leading Infra Companies.
+                Leading Infra Companies
               </p>
             </div>
           </div>
@@ -187,11 +197,10 @@ const Testimonials = () => {
           >
             <div
               key={currentTestimonial}
-              className={`w-full cursor-grab active:cursor-grabbing ${
-                slideDirection === "right"
-                  ? "animate-slide-in-right"
-                  : "animate-slide-in-left"
-              }`}
+              className={`w-full cursor-grab active:cursor-grabbing ${slideDirection === "right"
+                ? "animate-slide-in-right"
+                : "animate-slide-in-left"
+                }`}
               onMouseDown={(e) => handleDragStart(e)}
               onTouchStart={(e) => handleDragStart(e)}
               onMouseMove={(e) => handleDragMove(e)}
@@ -257,9 +266,8 @@ const Testimonials = () => {
                     className="w-6 h-6 lg:w-8 lg:h-8"
                   />
                   <div
-                    className={`w-0.5 bg-black ${
-                      index % 2 === 0 ? "h-12 lg:h-16" : "h-20 lg:h-28"
-                    }`}
+                    className={`w-0.5 bg-black ${index % 2 === 0 ? "h-12 lg:h-16" : "h-20 lg:h-28"
+                      }`}
                   />
                 </div>
               </div>

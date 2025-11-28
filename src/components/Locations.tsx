@@ -4,36 +4,6 @@ import storeFront from "@/assets/store-front.jpg";
 import indiaMap from "@/assets/india-map.svg";
 import { useAOS } from "@/hooks/useAOS";
 
-const locations = [
-  {
-    name: "Harur",
-    address: "2/307, Kurinji Nagar, (Near Velappanchavadi Signal), Harur, Dharmapuri Dt, Tamil Nadu - 636903",
-    phone: "+91-95000 29430",
-    email: "harur@oxifixinfra.com",
-    mapLink: "https://maps.app.goo.gl/harur-location-link"
-  },
-  {
-    name: "Madurai",
-    address: "2/307, Kurinji Nagar, (Near Velappanchavadi Signal), Harur, Dharmapuri Dt, Tamil Nadu - 636903",
-    phone: "+91-95000 29431",
-    email: "madurai@oxifixinfra.com",
-    mapLink: "https://maps.app.goo.gl/madurai-location-link"
-  },
-  {
-    name: "Namakkal",
-    address: "2/307, Kurinji Nagar, (Near Velappanchavadi Signal), Harur, Dharmapuri Dt, Tamil Nadu - 636903",
-    phone: "+91-95000 29432",
-    email: "namakkal@oxifixinfra.com",
-    mapLink: "https://maps.app.goo.gl/namakkal-location-link"
-  },
-  {
-    name: "Kovai",
-    address: "2/307, Kurinji Nagar, (Near Velappanchavadi Signal), Harur, Dharmapuri Dt, Tamil Nadu - 636903",
-    phone: "+91-95000 29433",
-    email: "kovai@oxifixinfra.com",
-    mapLink: "https://maps.app.goo.gl/kovai-location-link"
-  },
-];
 const Locations = () => {
   useAOS(); // Initialize AOS
 
@@ -45,116 +15,76 @@ const Locations = () => {
           <p
             className="text-primary font-normal tracking-wider text-sm flex items-center gap-2 mb-3 sm:mb-4"
             data-aos="fade-right"
-            data-aos-delay="50" // Reduced delay
-            data-aos-duration="300" // Reduced duration
+            data-aos-delay="50"
+            data-aos-duration="300"
           >
             <span className="w-8 sm:w-12 h-0.5 bg-dotted"></span>
             WE ARE JUST NEAR YOU
           </p>
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold"
-            data-aos="fade-up"
-            data-aos-delay="100" // Reduced delay
-            data-aos-duration="400" // Reduced duration
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
+          {/* Left Side - Only Title */}
+          <div
+            className="flex items-center justify-center lg:justify-start"
+            data-aos="fade-right"
+            data-aos-delay="150"
+            data-aos-duration="500"
           >
-            Our Locations
-          </h2>
-        </div>
+            <h2
+              className="
+    text-4xl       /* smaller for mobile */
+    sm:text-5xl
+    md:text-6xl
+    lg:text-8xl
+    font-bold
+    leading-tight
+    text-center
+    lg:text-left
+    px-4           /* reduced left-right padding for mobile */
+    mt-6           /* smaller margin top on mobile */
+    sm:mt-8
+    md:mt-10
+  "
+            >
+              Services Across{" "}
+              <span className="text-primary block mt-2 sm:mt-4 lg:mt-6">
+                India
+              </span>
+            </h2>
 
- <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-  {/* Location Cards */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-    {locations.map((location, index) => (
-      <div
-        key={location.name}
-        className="bg-background rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
-        data-aos="fade-up"
-        data-aos-delay={index * 50 + 150}
-        data-aos-duration="400"
-      >
-        <div className="bg-foreground text-background p-3 sm:p-4 text-center">
-          <h3 className="text-lg sm:text-xl font-bold">
-            {location.name}
-          </h3>
-        </div>
-
-        <div className="aspect-video overflow-hidden">
-          <img
-            src={storeFront}
-            alt={`${location.name} store`}
-            className="w-full h-full object-cover transition-transform duration-200 hover:scale-110"
-          />
-        </div>
-
-        <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
-          {/* Address with Map Link */}
-          <div className="flex gap-2 text-xs sm:text-sm">
-            <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground block sm:inline">
-                Address:
-              </span>{" "}
-              {location.address}{" "}
-              <a 
-                href={location.mapLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:underline text-sm text-primary cursor-pointer"
-              >
-                View on map
-              </a>
-            </p>
           </div>
 
-          {/* Phone with Tel Link */}
-          <div className="flex gap-2 text-xs sm:text-sm">
-            <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">
-                Phone:
-              </span>{" "}
-              <a 
-                href={`tel:${location.phone.replace(/\s/g, '')}`}
-                className="hover:underline hover:text-primary"
-              >
-                {location.phone}
-              </a>
-            </p>
-          </div>
+          {/* Right Side - India Map */}
+          <div
+            className="flex items-center justify-center"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="500"
+          >
+            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+              {/* Background Decoration */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl transform rotate-3 scale-105"></div>
 
-          {/* Email with Mailto Link */}
-          <div className="flex gap-2 text-xs sm:text-sm">
-            <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">
-                Email:
-              </span>{" "}
-              <a 
-                href={`mailto:${location.email}`}
-                className="hover:underline hover:text-primary"
-              >
-                {location.email}
-              </a>
-            </p>
+              {/* Map Container */}
+              <div className="relative bg-background rounded-2xl p-6 sm:p-8 shadow-2xl border">
+                <img
+                  src={indiaMap}
+                  alt="India map showing our service locations across the country"
+                  className="w-full h-auto drop-shadow-md"
+                />
+
+                {/* Floating PAN India Badge */}
+                <div className="absolute -top-3 -right-3 bg-primary text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+                  PAN India
+                </div>
+
+
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-
-  {/* India Map Section */}
-  <div
-    className="flex items-center justify-center mt-8 lg:mt-0"
-    data-aos="fade-left"
-    data-aos-delay="300"
-    data-aos-duration="400"
-  >
-    <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
-      <img
-        src={indiaMap}
-        alt="India map showing our locations"
-        className="w-full h-auto"
-      />
-    </div>
-  </div>
-</div>
       </div>
     </section>
   );

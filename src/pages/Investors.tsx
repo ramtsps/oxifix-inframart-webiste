@@ -24,6 +24,10 @@ import LeadershipSection from "@/components/LeadershipSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Brands from "@/components/Brands";
+import InvestorProposalSection from "@/components/InvestorProposalSection"; // Add this import
+import GrowthStrategySection from "@/components/GrowthStrategySection"; // Add this import
+import MrMoovendan from "@/assets/profile-pic/Moovendan-2.jpg";
+
 const Investors = () => {
   const teamMembers = [
     {
@@ -92,51 +96,61 @@ const Investors = () => {
 
       <HeroSection
         backgroundImage={storeFront}
-        title="  Grow With Us"
-        subtitle=" For inquiries, proposals, or detailed investment information, connect with our dedicated Investor Relations team ready to assist and guide you."
+        title="Grow With Us"
+        subtitle="For inquiries, proposals, or detailed investment information, connect with our dedicated Investor Relations team ready to assist and guide you."
         minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
       />
-      {/* Hero Section */}
+
+      {/* New Investor Proposal Section */}
+      <InvestorProposalSection />
+
+      {/* Why Inframart Section */}
       <WhyInframart />
+
+      {/* New Growth Strategy Section */}
+      <GrowthStrategySection />
+
+
       <Welcome
         badgeText="JOIN US"
         title="Partner with Us for Lasting Growth"
         description="At Inframart, we believe in creating value through sustainable growth and innovative projects. Join us as an investor to be part of our journey and benefit from our proven expertise and market presence."
         features={[
-          { id: "1", text: "Invest in diverse projects with strong growth potential. " },
+          { id: "1", text: "Invest in diverse projects with strong growth potential." },
           { id: "2", text: "Benefit from our track record of timely, successful deliveries." },
           { id: "3", text: "Stay informed with clear updates and open communication." },
         ]}
         testimonial={{
           quote:
-            "Our CEO believes in creating shared value and sustainable growth. Join us to be part of Inframart’s journey toward building a stronger, brighter future together.",
+            "Our CEO believes in creating shared value and sustainable growth. Join us to be part of Inframart's journey toward building a stronger, brighter future together.",
           name: "Mr. Moovendan Murugan",
-          position: "CEO & Founder",
+          position: "Director",
           avatar:
-            "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
+            MrMoovendan,
         }}
         award={{
           icon: awardIcon,
           title: "We're A Global Award",
-          subtitle: "wining Company",
+          subtitle: "winning Company",
         }}
         images={{
           main: showroom2,
           secondary: [showroom1, appliances],
         }}
       />
-      {/* Join Business Section */}
-      <LeadershipSection
+
+      {/* Leadership Section */}
+      {/* <LeadershipSection
         title="Meet Our Leadership"
         subtitle="···················· OUR CORE TEAM ··················"
-        topBackgroundImage={topBackgroundImage} // Pass the background image
-      />
+        topBackgroundImage={topBackgroundImage}
+      /> */}
 
-      <Testimonials />
+      {/* <Testimonials />
       <FAQ />
-      <Brands />
+      <Brands /> */}
 
       <Footer />
     </div>

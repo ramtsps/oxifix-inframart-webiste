@@ -277,11 +277,10 @@ const Welcome: React.FC<DynamicSectionProps> = ({
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-7xl relative">
         <div
-          className={`grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center ${
-            imagePosition === "left"
-              ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1"
-              : ""
-          }`}
+          className={`grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center ${imagePosition === "left"
+            ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1"
+            : ""
+            }`}
         >
           {imagePosition === "left" ? (
             <>

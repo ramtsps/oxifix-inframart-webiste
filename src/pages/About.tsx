@@ -23,6 +23,7 @@ import WhatWeBuild from "@/components/WhatWeBuild";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Brands from "@/components/Brands";
+import MrMoovendan from "@/assets/profile-pic/Moovendan-2.jpg";
 
 
 
@@ -43,8 +44,8 @@ const About = () => {
 
       <HeroSection
         backgroundImage={aboutBg}
-        title="Our Story"
-        subtitle="With innovation, quality, and commitment at our core, Oxifix Inframart is shaping the future of construction one project at a time."
+        title="Build the Future"
+        subtitle="Partner with Infra Mart to shape the next retail revolution in construction, property, and home solutions."
         minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}
@@ -62,14 +63,14 @@ const About = () => {
           quote:
             "Versatile Collaboration Options: Working One-on-One with Clients or Partnering with Organizations.",
           name: "Mr. Moovendan Murugan",
-          position: "CEO & Founder",
+          position: "Director",
           avatar:
-            "https://media.istockphoto.com/vectors/avatar-photo-placeholder-icon-design-vector-id1221380217?k=20&m=1221380217&s=612x612&w=0&h=avdFJ5PNo-CSkbUZzQ0Xm8h3u5BovGfSNDrfRicPDfY=",
+            MrMoovendan,
         }}
         award={{
           icon: awardIcon,
           title: "We're A Global Award",
-          subtitle: "wining Company",
+          subtitle: "winning  Company",
         }}
         images={{
           main: showroom2,
@@ -82,9 +83,9 @@ const About = () => {
         topBackgroundImage={topBackgroundImage} // Pass the background image
       />
       <WhatWeBuild />
-      <Testimonials />
+      {/* <Testimonials />
       <FAQ />
-      <Brands />
+      <Brands /> */}
 
       <Footer />
     </div>

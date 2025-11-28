@@ -181,6 +181,7 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -200,24 +201,26 @@ All colors MUST be HSL.
   .font-aexend {
     font-family: "Lexend", sans-serif;
   }
-    .font-roboto {
+
+  .font-roboto {
     font-family: "Roboto", sans-serif;
     letter-spacing: 1px;
   }
+
   .bg-dotted {
     background: transparent;
-    background-image: radial-gradient(
-      circle,
-      hsl(var(--primary)) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(circle,
+        hsl(var(--primary)) 1px,
+        transparent 1px);
     background-size: 4px 100%;
     background-position: center;
   }
+
   @keyframes marquee-mobile {
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-100%);
     }
@@ -235,6 +238,7 @@ All colors MUST be HSL.
     0% {
       transform: scaleX(0.4);
     }
+
     100% {
       transform: scaleX(1);
     }
@@ -246,10 +250,10 @@ All colors MUST be HSL.
   }
 
   .group:hover .bg-hover-scale {
-    animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-      forwards;
+    animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
   }
 }
+
 /* Ensure all elements respect boundaries */
 html,
 body,
@@ -296,17 +300,30 @@ body,
   }
 
   @keyframes marquee-left-to-right {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
+    0% {
+      transform: translateX(-100%);
+    }
 
-.animate-marquee-left-right {
-  animation: marquee-left-to-right 25s linear infinite;
-  display: flex;
-  will-change: transform;
-}
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-marquee-left-right {
+    animation: marquee-left-to-right 25s linear infinite;
+    display: flex;
+    will-change: transform;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+  }
 }
