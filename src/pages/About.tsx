@@ -45,7 +45,7 @@ const About = () => {
       <HeroSection
         backgroundImage={aboutBg}
         title="Build the Future"
-        subtitle="Partner with Infra Mart to shape the next retail revolution in construction, property, and home solutions."
+        subtitle="Partner with Infra Mart to shape the next retail revolution in construction and home solutions."
         minHeight="min-h-[70vh]"
         overlayOpacity={0.6}
         animate={true}

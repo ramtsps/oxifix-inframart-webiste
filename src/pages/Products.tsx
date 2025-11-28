@@ -96,7 +96,7 @@ const Products = () => {
       id: 12,
       name: "Structural Material",
       image: structuralMaterialImg,
-      description: "Kitchen fixtures and fittings",
+      description: "Building foundation and structural components",
     },
 
   ];

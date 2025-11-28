@@ -34,7 +34,7 @@ const Hero = () => {
           data-aos-duration="600"
         >
           <span className="bg-primary backdrop-blur-sm text-primary-foreground px-4 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-medium">
-           Building Tomorrow, Responsibly 
+            Building Tomorrow, Responsibly
           </span>
         </div>
 
@@ -80,9 +80,9 @@ const Hero = () => {
           data-aos-delay="600"
           data-aos-duration="600"
         >
-          <Link to={"/locations"}>
+          <Link to={"/products"}>
             <button className="flex items-center rounded-full bg-white text-black font-medium px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-base relative transition-transform duration-300 hover:scale-105 active:scale-95">
-              <span className="pr-2 sm:pr-3">VISIT OUR STORE</span>
+              <span className="pr-2 sm:pr-3">DISCOVER PRODUCTS</span>
               <span className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary -mr-1">
                 <ArrowRight className="w-4 h-4 text-white" />
               </span>

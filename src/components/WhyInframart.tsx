@@ -12,8 +12,8 @@ const WhyInframart = () => {
   return (
     <section className="pt-24 lg:pt-32 pb-40 lg:pb-52 relative bg-[#f4f4f5]">
       {/* Top background */}
-   
-         <div
+
+      <div
         className="absolute top-0 left-0 w-full h-5 sm:h-12  bg-cover bg-center bg-repeat-x animate-move-bg-l-r"
         style={{
           backgroundImage: `url(${topBackgroundImage})`,
@@ -44,7 +44,7 @@ const WhyInframart = () => {
               data-aos-delay="200"
             >
               <p className="text-primary font-normal tracking-wider text-sm flex items-center gap-2">
-                WHO WE ARE
+                WHY OXIFIX INFRAMART
                 <span className="w-8 lg:w-12 h-0.5 bg-white bg-dotted"></span>
               </p>
 
@@ -54,22 +54,22 @@ const WhyInframart = () => {
 
               <div className="space-y-4   text-muted-foreground leading-relaxed text-base sm:text-lg">
                 <p>
-           At Inframart, we are committed to making every home project seamless and stress-free.
-From bath fittings and plywood to electricals and paints, we offer everything under one roof.
-Our range of products comes from trusted brands, ensuring quality, durability, and safety.
-With expert guidance at every step, we help our customers make informed choices.
+                  At Inframart, we are committed to making every home project seamless and stress-free.
+                  From bath fittings and plywood to electricals and paints, we offer everything under one roof.
+                  Our range of products comes from trusted brands, ensuring quality, durability, and safety.
+                  With expert guidance at every step, we help our customers make informed choices.
                 </p>
 
                 <p>
-                                We prioritize convenience and reliability in every interaction.
-Timely delivery and personalized support are at the heart of our service.
+                  We prioritize convenience and reliability in every interaction.
+                  Timely delivery and personalized support are at the heart of our service.
                 </p>
 
                 <p>
-          Whether building a new home or renovating an existing one, Inframart is your go-to partner.
-Our comprehensive solutions save time and effort, letting you focus on bringing your vision to life.
-We combine innovation and quality to create spaces that are functional, beautiful, and lasting.
-With Inframart, every project becomes a smooth and satisfying experience.
+                  Whether building a new home or renovating an existing one, Inframart is your go-to partner.
+                  Our comprehensive solutions save time and effort, letting you focus on bringing your vision to life.
+                  We combine innovation and quality to create spaces that are functional, beautiful, and lasting.
+                  With Inframart, every project becomes a smooth and satisfying experience.
                 </p>
 
 

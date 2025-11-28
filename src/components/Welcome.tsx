@@ -66,7 +66,7 @@ const Welcome: React.FC<DynamicSectionProps> = ({
     >
       <div className="space-y-3 lg:space-y-4">
         <p
-          className="text-primary font-semibold tracking-wider text-xs sm:text-sm flex items-center gap-2"
+          className="text-primary font-normal tracking-wider text-xs sm:text-sm flex items-center gap-2"
           data-aos="fade-right"
           data-aos-delay="150"
         >
@@ -256,7 +256,7 @@ const Welcome: React.FC<DynamicSectionProps> = ({
               data-aos-delay="750"
             />
             <div
-              className="[font-family:'Roboto',Helvetica] font-bold text-black text-sm sm:text-base md:text-lg lg:text-2xl leading-5 sm:leading-6 md:leading-7 lg:leading-8"
+              className="[font-family:'Roboto',Helvetica] font-bold text-black text-sm sm:text-base md:text-lg lg:text-xl leading-5 sm:leading-6 md:leading-7 lg:leading-8"
               data-aos="fade-left"
               data-aos-delay="800"
             >
