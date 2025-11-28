@@ -32,9 +32,13 @@ const Contact = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // API Configuration - Make sure this matches your backend
-  const API_URL = "http://localhost:3000/api/contact";
-  const API_TOKEN = "your-secret-api-token-here";
-  const RECAPTCHA_SITE_KEY = "6LcBmhosAAAAACDLyvBBo9-JwsHlMaPBPaSjPrOL";
+  // const API_URL = "http://localhost:3000/api/contact";
+  // const API_TOKEN = "your-secret-api-token-here";
+  // const RECAPTCHA_SITE_KEY = "6LcBmhosAAAAACDLyvBBo9-JwsHlMaPBPaSjPrOL";
+
+  const API_URL = import.meta.env.VITE_API_URL;
+  const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   // reCAPTCHA Configuration - Replace with your actual site key
 
@@ -130,7 +134,13 @@ const Contact = () => {
     }
 
     try {
-      console.log("Sending request to:", API_URL);
+      console.log("Environment Variables:", {
+        API_URL: API_URL,
+        API_TOKEN: API_TOKEN ? "Present" : "Missing",
+        RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY ? "Present" : "Missing"
+      });
+      console.log("reCAPTCHA Token:", recaptchaToken);
+      console.log("Form Data:", formData);
 
       const response = await fetch(API_URL, {
         method: "POST",
@@ -145,7 +155,7 @@ const Contact = () => {
           phone: formData.phone.trim(),
           message: formData.message.trim(),
           isNewsletter: false,
-          recaptchaToken: recaptchaToken // Send recaptcha token to backend
+          recaptchaToken: recaptchaToken
         }),
       });
 
@@ -464,7 +474,7 @@ const Contact = () => {
                         />
                       </div>
                       {!recaptchaToken && formData.firstName && formData.lastName && formData.email && formData.phone && formData.message && (
-                        <p className="text-xs text-amber-600 text-center mt-2">
+                        <p className="text-xs text-amber-600 text-left mt-2">
                           Please complete the reCAPTCHA verification
                         </p>
                       )}
@@ -507,9 +517,9 @@ const Contact = () => {
                   Contact Info
                 </h3>
 
-                <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-4 sm:space-y-6 ">
                   <div
-                    className="flex items-start gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-2"
+                    className="flex items-sta gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-2 "
                     data-aos="fade-left"
                     data-aos-delay="600"
                   >
@@ -565,6 +575,81 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+
+
+
+              {/* <div
+                className="space-y-6 sm:space-y-8 w-full xl:max-w-md lg:max-w-sm"
+                data-aos="fade-left"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                <h3
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight text-center xl:text-left"
+                  data-aos="fade-left"
+                  data-aos-delay="400"
+                >
+                  Contact Info
+                </h3>
+
+                <div className="space-y-4 sm:space-y-6 flex flex-col items-center xl:items-start">
+                  <div
+                    className="flex items-start gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-2 w-full max-w-xs xl:max-w-none"
+                    data-aos="fade-left"
+                    data-aos-delay="600"
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0 mt-1 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
+                      <img
+                        src={phoneIcon}
+                        alt="Phone Icon"
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-primary"
+                      />
+                    </div>
+                    <div className="flex-1 space-y-1 text-center xl:text-left">
+                      <a
+                        href="tel:+919443900246"
+                        className="text-foreground font-medium text-sm sm:text-base block transition-all duration-300 hover:text-primary hover:underline underline-offset-4"
+                      >
+                        +91 94439 00246
+                      </a>
+                      <a
+                        href="tel:+918428002244"
+                        className="text-foreground font-medium text-sm sm:text-base block transition-all duration-300 hover:text-primary hover:underline underline-offset-4"
+                      >
+                        +91 84280 02244
+                      </a>
+                    </div>
+                  </div>
+
+                  <div
+                    className="flex items-start gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-2 w-full max-w-xs xl:max-w-none"
+                    data-aos="fade-left"
+                    data-aos-delay="700"
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0 mt-1 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
+                      <img
+                        src={mailIcon}
+                        alt="Mail Icon"
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-primary"
+                      />
+                    </div>
+                    <div className="flex-1 space-y-1 text-center xl:text-left">
+                      <a
+                        href="mailto:sales@oxifixinframart.com"
+                        className="text-foreground font-medium text-sm sm:text-base block transition-all duration-300 hover:text-primary hover:underline underline-offset-4 break-all"
+                      >
+                        sales@oxifixinframart.com
+                      </a>
+                      <a
+                        href="mailto:customer@oxifixinframart.com"
+                        className="text-foreground font-medium text-sm sm:text-base block transition-all duration-300 hover:text-primary hover:underline underline-offset-4 break-all"
+                      >
+                        customer@oxifixinframart.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </section>
